@@ -83,11 +83,16 @@
                       <div class="mb-3">
                         <label for="foto" class="form-label">Foto</label>
                         <input type="file" name="foto" class="form-control" id="foto">
-                        <img class="mt-2" src="{{ asset('img/profile/', $user->foto) }}" 
-                          alt="{{ $user->username }}" width="10%">
+                        @empty($user->foto)
+                          <img class="mt-2" src="{{ asset('storage/img/no-photo.png') }}" 
+                            alt="{{ $user->username }}" width="10%">
+                        @else
+                          <img class="mt-2" src="{{ asset('storage/img/'. $user->foto) }}" 
+                            alt="{{ $user->username }}" width="10%">
+                        @endempty
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah Data</button>
+                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Edit Data</button>
                     </form>
                   </div>
                 </div>

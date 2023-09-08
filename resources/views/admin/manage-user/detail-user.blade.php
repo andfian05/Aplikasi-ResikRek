@@ -57,7 +57,7 @@
                                             <label for="role" class="form-label">Pemangku Kepentingan</label>
                                             <select name="role" id="role" type="text" class="form-control"
                                                 aria-describedby="" disabled>
-                                                <option value="{{ $user->role }}">--- {{ $user->role }} ---</option>
+                                                <option value="{{ $user->role }}">{{ $user->role }}</option>
                                             </select>
 
 
@@ -73,13 +73,13 @@
                                         <div class="mb-3">
                                             <label for="foto" class="form-label mb-5">Foto</label>
                                             <div class="text-center">
-                                                @empty($user->photo)
-                                                <img src="{{asset('foto/profile/no-photo.png')}}" style="height: 10rem;"
-                                                    class="img-circle elevation-2" alt="Image {{ $user->nama }}">
+                                                @empty($user->foto)
+                                                <img src="{{asset('storage/img/no-photo.png')}}" style="height: 10rem;"
+                                                    class="img-circle elevation-2" alt="{{ $user->username }}">
                                                 @else
-                                                <img src="{{asset('foto/profile')}}/{{ $user->photo }}"
+                                                <img src="{{ asset('storage/img/'. $user->foto) }}"
                                                     style="height: 10rem;" class="img-circle elevation-2"
-                                                    alt="Image {{ $user->nama }}">
+                                                    alt="{{ $user->username }}">
                                                 @endempty
                                             </div>
 
