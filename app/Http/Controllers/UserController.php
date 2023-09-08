@@ -20,6 +20,8 @@ class UserController extends Controller
         $admin = Auth::user();
         $users = User::all();
 
+        // $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+
         return view('admin.manage-user.data-user')->with([
             'admin' => $admin,
             'users' => $users,
@@ -57,7 +59,7 @@ class UserController extends Controller
             'role' => $data['role'],
         ]);
 
-        return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Ditambahkan!');
+        return redirect()->route('manage-users.index')->with('success', 'Data Management User Berhasil Ditambahkan!');
     }
 
     /**
@@ -69,8 +71,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         return view('admin.manage-user.detail-user')->with([
-            'admin' => $admin,
-            'user' => $user
+            'user' => $user,
+            'admin' => $admin
         ]);
     }
 
