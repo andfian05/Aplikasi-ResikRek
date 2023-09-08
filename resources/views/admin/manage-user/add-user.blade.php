@@ -29,18 +29,19 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <a class="btn btn-success btn-sm-2" href="{{ route('manage-users.index') }}">
-                <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
-              </a>
+              
 
-              <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4 text-center">Add User</h5>
+             
+                <h5 class="card-title fw-semibold mb-5 text-center">Add User</h5>
+                <a class="btn btn-success btn-sm-2 mb-3" href="{{ route('manage-users.index') }}">
+                  <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
+                </a>
                 <div class="card">
                   <div class="card-body">
                     <form action="{{ route('manage-users.store') }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <label for="nama" class="form-label">Nama</label>
                         <input type="text" name="nama" class="form-control" id="nama">
                         
                       </div>
@@ -49,11 +50,7 @@
                         <input type="text" name="penempatan" class="form-control" id="penempatan">
                         
                       </div>
-                      <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" id="foto">
-                        
-                      </div>
+                      
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username">
@@ -71,13 +68,18 @@
                           <option value="Karyawan">Karyawan</option>
                         </select>
                       </div>
+                      <div class="mb-3">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" name="foto" class="form-control" id="foto">
+                        
+                      </div>
                       <br>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah Data</button>
                     </form>
                   </div>
                 </div>
                 
-              </div>
+             
 
 
               

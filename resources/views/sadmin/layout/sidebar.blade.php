@@ -36,25 +36,10 @@
               <span>
                 <i class="ti ti-article"></i>
               </span>
-              <span class="hide-menu">Datatables</span>
+              <span class="hide-menu">Laporan</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-              <span>
-                <i class="ti ti-alert-circle"></i>
-              </span>
-              <span class="hide-menu">Alerts</span>
-            </a>
-          </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-              <span>
-                <i class="ti ti-cards"></i>
-              </span>
-              <span class="hide-menu">Card</span>
-            </a>
-          </li>
+          
           
         <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
           <div class="d-flex">

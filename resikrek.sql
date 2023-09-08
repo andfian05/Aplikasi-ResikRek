@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2023 at 06:46 PM
+-- Generation Time: Sep 02, 2023 at 06:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -103,6 +103,13 @@ CREATE TABLE `personal_access_tokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(1, 'App\\Models\\User', 1, 'token', '6cbd58ea972eb22560f17e58cbb775a4bf3441b460919b9a0f3e444e57eff502', '[\"*\"]', NULL, NULL, '2023-09-02 07:06:45', '2023-09-02 07:06:45');
+
 -- --------------------------------------------------------
 
 --
@@ -112,11 +119,15 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `penempatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tmp_lahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jabatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -125,10 +136,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `penempatan`, `foto`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Superadmin Resik Rek', 'Admin', '', 'supera_rek', '$2y$10$R8kG46mtTQHqZYdvjiHP7ukwFnVVDvy1y2pb9Cmhh6C1aNNshMHVy', 'Superadmin', '2023-09-04 07:33:47', '2023-09-04 07:33:47'),
-(2, 'Admin Resik Rek', 'Admin', '', 'admin_rek', '$2y$10$nPrVEoZCS20s3z4d3Y5f3eLQuqKmBzn59z0i.mTCpUAlQlEJPOEkC', 'Admin', '2023-09-04 07:33:47', '2023-09-04 07:33:47'),
-(3, 'Kak Fiannn', 'coba deh dulu', 'Andromeda_Galaxy.jpg-1693845657.jpg', 'fian05zzz', '$2y$10$/VhRggOM4U8EqfFlmmrxg..kiqrAWBzMhjZQ7cHgLHsH0OWYxaWom', 'Karyawan', '2023-09-04 09:40:58', '2023-09-04 09:40:58');
+INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `tmp_lahir`, `tgl_lahir`, `gender`, `jabatan`, `role`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 'Superadmin Resik Rek', 'supera_rek', 'supera.rek@gmail.com', '$2y$10$cUZYdFCxm.MZLyx99iAC4eXU6LHBhBTX5RWsJiCJ8O8eqgS0S2J.u', 'Jombang', '2023-09-01', '', 'Admin', 'Superadmin', '', '2023-09-01 11:29:53', '2023-09-01 11:29:53'),
+(2, 'Admin Resik Rek', 'admin_rek', 'admin.rek@gmail.com', '$2y$10$gUn2yn0TOizO5jU4/VWR/.VpVdCIq6nsZ.OhwGXlYwGdoHpoD4WIS', 'Jombang', '2023-09-01', '', 'Admin', 'Admin', '', '2023-09-01 11:29:54', '2023-09-01 11:29:54');
 
 --
 -- Indexes for dumped tables
@@ -172,7 +182,8 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_username_unique` (`username`);
+  ADD UNIQUE KEY `users_username_unique` (`username`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -194,13 +205,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

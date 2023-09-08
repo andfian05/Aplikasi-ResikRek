@@ -40,21 +40,14 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+            <a class="sidebar-link" href="/laporan" aria-expanded="false">
               <span>
-                <i class="ti ti-alert-circle"></i>
+                <i class="ti ti-file-description"></i>
               </span>
-              <span class="hide-menu">Alerts</span>
+              <span class="hide-menu">Laporan</span>
             </a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-              <span>
-                <i class="ti ti-cards"></i>
-              </span>
-              <span class="hide-menu">Card</span>
-            </a>
-          </li>
+          
           
         <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
           <div class="d-flex">

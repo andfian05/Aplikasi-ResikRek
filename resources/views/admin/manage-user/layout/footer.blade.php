@@ -5,3 +5,5 @@
   <script src="{{asset('Templeate/src/assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
   <script src="{{asset('Templeate/src/assets/libs/simplebar/dist/simplebar.js')}}"></script>
   <script src="{{asset('Templeate/src/assets/js/dashboard.js')}}"></script>
+
+  

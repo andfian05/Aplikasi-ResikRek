@@ -24,9 +24,15 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/datatables', function () {
-    return view('admin.data.datatables');
+
+Route::get('/laporan', function () {
+    return view('admin.laporan.data-laporan');
 });
+
+Route::get('/add-laporan', function () {
+    return view('admin.laporan.add-laporan');
+});
+
 
 /** SUPERADMIN */
 Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {
@@ -38,6 +44,7 @@ Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {
 Route::middleware('auth:admin')->prefix('admin')->group(function () {
     /** Dashboard */
     Route::get('/', [HomeController::class, 'dashboardAdmin']);
+   
 
     /** Data Users */
     Route::resource('manage-users', UserController::class);
