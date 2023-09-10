@@ -145,4 +145,13 @@ class UserController extends Controller
 
         return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Dihapus!');
     }
+
+    /**
+     * Export resource to pdf.
+     */
+    public function exportPDF()
+    {
+        $users = User::all();
+        
+    }
 }
