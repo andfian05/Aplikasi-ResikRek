@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 1,
-            'nama' => 'Superadmin Resik Rek',
+            'nama' => 'Superadmin ResikRek',
             'penempatan' => '',
             'foto' => '',
-            'username' => 'supera_rek',
+            'username' => 'Supera_rek',
             'password' => Hash::make('Superad52@admin'),
             'role' => 'Superadmin',
             'created_at' => date('Y-m-d H:i:s'),
@@ -28,10 +28,10 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 2,
-            'nama' => 'Admin Resik Rek',
+            'nama' => 'Admin ResikRek',
             'penempatan' => '',
             'foto' => '',
-            'username' => 'admin_rek',
+            'username' => 'Admin_rek',
             'password' => Hash::make('Adminn13@admin'),
             'role' => 'Admin',
             'created_at' => date('Y-m-d H:i:s'),

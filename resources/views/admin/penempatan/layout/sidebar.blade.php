@@ -50,7 +50,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="/penempatan" aria-expanded="false">
               <span>
-                <i class="ti ti-file-description"></i>
+                <i class="ti ti-cards"></i>
               </span>
               <span class="hide-menu">Penempatan</span>
             </a>

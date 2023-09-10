@@ -9,6 +9,8 @@ use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
 use Auth;
+use Storage;
+use File;
 
 class UserController extends Controller
 {
@@ -47,8 +49,11 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        $fotoName = $data['foto']->getClientOriginalName() . '-' . time() . '.' .$data['foto']->extension();
-        $data['foto']->move(public_path('img', $fotoName));
+        $foto = $request->file('foto');
+        $fotoName = time().'-'.$foto->getClientOriginalName();
+        $path = 'img/'.$fotoName;
+        
+        Storage::disk('public')->put($path, file_get_contents($foto));
 
         User::create([
             'nama' => $data['nama'],
@@ -98,20 +103,18 @@ class UserController extends Controller
         $data = $request->all();
         $user = User::findOrFail($id);
 
-        if ($data['foto'] != NULL) {
-            $fotoName = $data['foto']->getClientOriginalName() . '-' . time() . '.' . $data['foto']->extension();
-            $data['foto']->move(public_path('img', $fotoName));
-            if ($user->foto != NULL) {
-                unlink(public_path('img', $user->foto));
-            } else {
-                
-            }
-            
-        } else {
+        if ($request->foto == "") {
             $fotoName = $user->foto;
+        } else {
+            $foto = $request->file('foto');
+            $fotoName = time().'-'.$foto->getClientOriginalName();
+            $path = 'img/'.$fotoName;
+            
+            Storage::disk('public')->put($path, file_get_contents($foto));
+            if(!empty($user->foto)) File::delete('storage/img/'.$user->foto);
         }
 
-        if ($data['password'] == $user->password) {
+        if ($request->password == "") {
             $password = $user->password;
         } else {
             $password = Hash::make($data['password']);
@@ -137,7 +140,7 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
-        if(!empty($user->foto)) unlink(public_path('img', $user->foto));
+        if(!empty($user->foto)) File::delete('storage/img/'.$user->foto);
         $user->delete();
 
         return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Dihapus!');

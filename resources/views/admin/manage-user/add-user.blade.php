@@ -74,7 +74,7 @@
                         
                       </div>
                       <br>
-                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah Data</button>
+                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah User</button>
                     </form>
                   </div>
                 </div>

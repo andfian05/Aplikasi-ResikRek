@@ -34,7 +34,7 @@
               <h5 class="card-title fw-semibold mb-4 text-center">Data Laporan</h5>
               
               <a class="btn btn-secondary m-1 mb-3" href="/add-laporan">
-                <i class="fa-solid fa-plus"></i>&nbsp;Add User
+                <i class="fa-solid fa-plus"></i>&nbsp;Add Laporan
               </a>
               <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
@@ -68,9 +68,9 @@
                             <td data-title="After"><img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}" width="70px" height="70px" alt=""></td>
                             <th class="d-flex justify-content-center">
                               <a class="btn btn-primary btn-sm me-2"
-                                  href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
+                                  href="/detail-laporan"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
                               <a class="btn btn-success btn-sm me-2"
-                                  href=""><i class="fa-solid fa-pencil"></i> Update</a>
+                                  href="/edit-laporan"><i class="fa-solid fa-pencil"></i> Update</a>
                               <form method="POST" action=""
                                   style="display: inline-block;">
                                   

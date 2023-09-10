@@ -16,6 +16,23 @@ use App\Http\Controllers\UserController;
 |
 */
 
+
+/* 
+
+=== untuk penyimpanan foto, lakukan ini ===
+php artisan storage:link
+
+=== untuk menjalani laravel, lakukan ini ===
+php artisan serve
+
+=== untuk update composer, lakukan ini ===
+composer update
+
+=== jika menggunakan node js, lakukan ini ===
+npm run dev watch
+
+*/
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,7 +41,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-
+/** Laporan */
 Route::get('/laporan', function () {
     return view('admin.laporan.data-laporan');
 });
@@ -33,6 +50,31 @@ Route::get('/add-laporan', function () {
     return view('admin.laporan.add-laporan');
 });
 
+Route::get('/detail-laporan', function () {
+    return view('admin.laporan.detail-laporan');
+});
+
+Route::get('/edit-laporan', function () {
+    return view('admin.laporan.edit-laporan');
+});
+
+
+/** Penempatan */
+Route::get('/penempatan', function () {
+    return view('admin.penempatan.data-penempatan');
+});
+
+Route::get('/add-penempatan', function () {
+    return view('admin.penempatan.add-penempatan');
+});
+
+Route::get('/detail-penempatan', function () {
+    return view('admin.penempatan.detail-penempatan');
+});
+
+Route::get('/edit-penempatan', function () {
+    return view('admin.penempatan.edit-penempatan');
+});
 
 /** SUPERADMIN */
 Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {

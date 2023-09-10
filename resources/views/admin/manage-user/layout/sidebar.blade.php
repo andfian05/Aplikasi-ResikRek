@@ -47,6 +47,14 @@
               <span class="hide-menu">Laporan</span>
             </a>
           </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/penempatan" aria-expanded="false">
+              <span>
+                <i class="ti ti-file-description"></i>
+              </span>
+              <span class="hide-menu">Penempatan</span>
+            </a>
+          </li>
           
           
         <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">

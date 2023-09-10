@@ -29,9 +29,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold mb-5 text-center">Detail User</h5>
-                            <a class="btn btn-success btn-sm-2 mb-3" href="{{ route('manage-users.index') }}">
+                            <a class="btn btn-success m-1 mb-3" href="{{ route('manage-users.index') }}">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
+                            <a class="btn btn-danger m-1 mb-3" href="">
+                                <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
+                            </a>
+
+                           
                             <div class="card">
                                 <div class="card-body">
                                     <form>
@@ -47,11 +52,6 @@
                                                 value="{{ $user->penempatan }}" id="penempatan" disabled>
 
                                         </div>
-
-
-
-
-
 
                                         <div class="mb-3">
                                             <label for="role" class="form-label">Pemangku Kepentingan</label>
@@ -72,7 +72,7 @@
 
                                         <div class="mb-3">
                                             <label for="foto" class="form-label mb-5">Foto</label>
-                                            <div class="text-center">
+                                            {{-- <div class="text-center">
                                                 @empty($user->photo)
                                                 <img src="{{asset('foto/profile/no-photo.png')}}" style="height: 10rem;"
                                                     class="img-circle elevation-2" alt="Image {{ $user->nama }}">
@@ -80,6 +80,17 @@
                                                 <img src="{{asset('foto/profile')}}/{{ $user->photo }}"
                                                     style="height: 10rem;" class="img-circle elevation-2"
                                                     alt="Image {{ $user->nama }}">
+                                                @endempty
+                                            </div> --}}
+
+                                            <div class="text-center">
+                                                @empty($user->foto)
+                                                <img src="{{asset('storage/img/no-photo.png')}}" style="height: 20rem;"
+                                                    class="img-circle elevation-2 img-thumbnail shadow-lg" alt="{{ $user->username }}">
+                                                @else
+                                                <img src="{{ asset('storage/img/'. $user->foto) }}"
+                                                    style="height: 20rem;" class="img-circle elevation-2 img-thumbnail shadow-lg"
+                                                    alt="{{ $user->username }}">
                                                 @endempty
                                             </div>
 
