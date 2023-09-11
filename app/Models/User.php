@@ -12,6 +12,9 @@ use Kyslik\ColumnSortable\Sortable;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    use HasFactory;
+    use Sortable;
 
     /**
      * The attributes that are mass assignable.

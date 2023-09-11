@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="foto" class="form-label mb-5">Before</label>
-                                            <div class="text-left">
+                                            {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
                                                     class="img-circle elevation-2 img-thumbnail shadow-lg" alt="Image ">
@@ -56,13 +56,43 @@
                                                     style="height: 10rem;" class="img-circle elevation-2 img-thumbnail shadow-lg"
                                                     alt="Image ">
                                                 @endempty
+                                            </div> --}}
+
+                                            <div class="col-sm-7 col-xl-5">
+                                                <div class="card overflow-hidden rounded-2">
+                                                    <div class="position-relative">
+                                                        <a href="javascript:void(0)">
+            
+                                                           
+                                                            {{-- <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt=""> --}}
+                                                           
+                                                            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt="">
+                                                            
+                                                        </a>
+                                                        <a href="javascript:void(0)"
+                                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i>
+                                                        </a>
+                                                    </div>
+            
+            
+                                                    <div class="card-body pt-3 p-4">
+                                                        <h6 class="fw-semibold fs-4">Nama Pegawai</h6>
+                                                        <div class="d-flex align-items-center justify-content-between">
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
 
                                         </div>
                                         <div class="mb-3">
                                             <label for="foto" class="form-label mb-5 mt-5">After</label>
-                                            <div class="text-left">
+                                            {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
                                                     class="img-circle elevation-2 img-circle elevation-2 img-thumbnail shadow-lg" alt="Image ">
@@ -71,6 +101,36 @@
                                                     style="height: 10rem;" class="img-circle elevation-2 img-circle elevation-2 img-thumbnail shadow-lg"
                                                     alt="Image ">
                                                 @endempty
+                                            </div> --}}
+
+                                            <div class="col-sm-7 col-xl-5">
+                                                <div class="card overflow-hidden rounded-2">
+                                                    <div class="position-relative">
+                                                        <a href="javascript:void(0)">
+            
+                                                           
+                                                            {{-- <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt=""> --}}
+                                                           
+                                                            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt="">
+                                                            
+                                                        </a>
+                                                        <a href="javascript:void(0)"
+                                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i>
+                                                        </a>
+                                                    </div>
+            
+            
+                                                    <div class="card-body pt-3 p-4">
+                                                        <h6 class="fw-semibold fs-4">Nama Pegawai</h6>
+                                                        <div class="d-flex align-items-center justify-content-between">
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
 

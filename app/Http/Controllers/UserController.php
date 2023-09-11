@@ -20,13 +20,25 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $admin = Auth::user();
-        $users = User::all();
+        // $users = User::all();
 
-        // $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+        $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+
+        $cari = $request->query('cari');
+        
+        if(!empty($cari)){
+            $users = User::sortable()
+            ->where('users.nama','like','%'. $cari .'%')
+            ->orWhere('users.role','like','%'. $cari .'%')
+            ->paginate(5)->onEachSide(1)->fragment('users');
+        } else {
+            $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+        }
 
         return view('admin.manage-user.data-user')->with([
             'admin' => $admin,
             'users' => $users,
+            'cari' => $cari,
         ]);
     }
 

@@ -42,6 +42,22 @@
               <a class="btn btn-success m-1 mb-3" href="">
                 <i class="fa-solid fa-file-excel"></i>&nbsp; Excel
               </a>
+              <form method="GET" class="input-group mb-3">
+                
+        
+                <div class="input-group">
+                  <span class="input-group-text">Search</span>
+                  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="" name="" id="" value="">
+                  
+                  
+                </div>
+                
+               
+              </form>
+
+
+
+
               <div class="card">
                 <div class="card-body">
                   <form>

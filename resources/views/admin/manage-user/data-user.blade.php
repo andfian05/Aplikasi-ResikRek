@@ -42,6 +42,23 @@
               <a class="btn btn-success m-1 mb-3" href="">
                 <i class="fa-solid fa-file-excel"></i>&nbsp; Excel
               </a>
+
+             
+              <form method="GET" class="input-group mb-3">
+                
+        
+                  <div class="input-group">
+                    <span class="input-group-text">Search</span>
+                    <input type="text" class="form-control" placeholder="Pencarian Data [Cari Data + (Enter)]  -  Reset Pencarian [Hapus Data + (Enter)]" aria-label="" aria-describedby="cari" name="cari" id="cari" value="{{ $cari }}">
+                    
+                    
+                  </div>
+                  
+                 
+              </form>
+               
+              
+
               <div class="card">
                 <div class="card-body">
                   <form>
@@ -51,18 +68,18 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">Nama</th>
+                            <th scope="col">@sortablelink('nama','Nama')</th>
                             <th scope="col">Username</th>
-                            <th scope="col">Role</th>
+                            <th scope="col">@sortablelink('role','Role')</th>
                            
                             <th scope="col" class="text-center">Action</th> 
                           </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                          {{-- @php $no = 1 + (($users->currentPage()-1) * $users->perPage()); @endphp
-                          @foreach($users as $user) --}}
-                          @php $no = 1; @endphp
-                          @foreach ($users as $user)
+                          @php $no = 1 + (($users->currentPage()-1) * $users->perPage()); @endphp
+                          @foreach($users as $user)
+                          {{-- @php $no = 1; @endphp
+                          @foreach ($users as $user) --}}
                           <tr>
                             <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
                             <td data-title="Nama">{{ $user->nama }}</td>
@@ -88,6 +105,7 @@
                         </tbody>
                         
                       </table>
+                      {!! $users->appends(Request::except('page'))->render() !!}
                     </div>
     
                   </form>
