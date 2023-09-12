@@ -84,15 +84,16 @@
                         <label for="foto" class="form-label">Foto</label>
                         <input type="file" name="foto" class="form-control" id="foto">
                         @empty($user->foto)
-                          <img class="mt-2" src="{{ asset('storage/img/no-photo.png') }}" 
+                          <img class="mt-2 img-circle elevation-2 img-thumbnail shadow-lg"  src="{{ asset('storage/img/no-photo.png') }}" 
                             alt="{{ $user->username }}" width="10%">
                         @else
-                          <img class="mt-2" src="{{ asset('storage/img/'. $user->foto) }}" 
+                          <img class="mt-2 img-circle elevation-2 img-thumbnail shadow-lg"  src="{{ asset('storage/img/'. $user->foto) }}" 
                             alt="{{ $user->username }}" width="10%">
                         @endempty
                       </div>
+                      </div>
                       <br>
-                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Edit Data</button>
+                      <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Update Data</button>
                     </form>
                   </div>
                 </div>

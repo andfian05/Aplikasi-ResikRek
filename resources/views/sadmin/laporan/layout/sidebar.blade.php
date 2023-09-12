@@ -19,7 +19,7 @@
           </li>
 
           <li class="sidebar-item">
-            <a class="sidebar-link" href="" aria-expanded="false">
+            <a class="sidebar-link" href="{{ url('/admin') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-layout-dashboard"></i>
               </span>
@@ -40,11 +40,19 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="/dashboard" aria-expanded="false">
+            <a class="sidebar-link" href="/laporan" aria-expanded="false">
               <span>
                 <i class="ti ti-file-description"></i>
               </span>
               <span class="hide-menu">Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/penempatan" aria-expanded="false">
+              <span>
+                <i class="ti ti-file-description"></i>
+              </span>
+              <span class="hide-menu">Penempatan</span>
             </a>
           </li>
          

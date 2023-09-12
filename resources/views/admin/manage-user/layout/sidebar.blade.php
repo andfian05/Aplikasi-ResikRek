@@ -3,7 +3,7 @@
     <!-- Sidebar scroll-->
     <div>
       <div class="brand-logo d-flex align-items-center justify-content-between">
-        <a href="./index.html" class="text-nowrap logo-img">
+        <a href="{{ url('/admin') }}" class="text-nowrap logo-img">
           <img src="{{asset('icon/resik-logo.png')}}" class="rounded mx-auto d-block" width="180" alt="">
         </a>
         <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -45,6 +45,15 @@
                 <i class="ti ti-file-description"></i>
               </span>
               <span class="hide-menu">Laporan</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('penempatan.index') }}" 
+              aria-expanded="false">
+              <span>
+                <i class="ti ti-file-description"></i>
+              </span>
+              <span class="hide-menu">Penempatan</span>
             </a>
           </li>
           

@@ -2,7 +2,7 @@
 <html lang="en">
 
 {{-- Header.blade.php --}}
-@include('admin.manage-user.layout.header')
+@include('admin.penempatan.layout.header')
 
 <body>
   <!--  Body Wrapper -->
@@ -12,7 +12,7 @@
     
 
     {{-- Sidebar.blade.php --}}
-    @include('admin.manage-user.layout.sidebar')
+    @include('admin.penempatan.layout.sidebar')
 
 
 
@@ -21,7 +21,7 @@
       <!--  Header Start -->
       <header class="app-header">
          {{-- Navbar.blade.php --}}
-         @include('admin.manage-user.layout.navbar')
+         @include('admin.penempatan.layout.navbar')
       </header>
       
 
@@ -31,10 +31,10 @@
             <div class="card-body">
             
 
-              <h5 class="card-title fw-semibold mb-5 text-center">Data Pengguna</h5>
+              <h5 class="card-title fw-semibold mb-4 text-center">Data Penempatan</h5>
               
-              <a class="btn btn-secondary m-1 mb-3" href="{{ route('manage-users.create') }}">
-                <i class="fa-solid fa-plus"></i>&nbsp;Add User
+              <a class="btn btn-secondary m-1 mb-3" href="{{ route('penempatan.create') }}">
+                <i class="fa-solid fa-plus"></i>&nbsp;Add Penempatan
               </a>
               <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
@@ -51,9 +51,10 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Role</th>
+                            <th scope="col">Pegawai</th>
+                            <th scope="col">Kabupaten</th>
+                            <th scope="col">Alamat</th>
+                            
                            
                             <th scope="col" class="text-center">Action</th> 
                           </tr>
@@ -62,18 +63,19 @@
                           {{-- @php $no = 1 + (($users->currentPage()-1) * $users->perPage()); @endphp
                           @foreach($users as $user) --}}
                           @php $no = 1; @endphp
-                          @foreach ($users as $user)
+                          @foreach ($penempatans as $penempatan)
                           <tr>
                             <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
-                            <td data-title="Nama">{{ $user->nama }}</td>
-                            <td data-title="Username">{{ $user->username }}</td>
-                            <td data-title="Status">{{ $user->role }}</td>
+                            <td data-title="Pegawai">{{ $penempatan->user->nama }}</td>
+                            <td data-title="Kabupaten">{{ $penempatan->kabupaten->nama }}</td>
+                            <td data-title="Alamat">{{ $penempatan->alamat }}</td>
                             <th class="d-flex justify-content-center">
                               <a class="btn btn-primary btn-sm me-2"
-                                  href="{{ route('manage-users.show', $user->id) }}"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
+                                  href="{{ route('penempatan.show', $penempatan->id) }}"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
                               <a class="btn btn-success btn-sm me-2"
-                                  href="{{ route('manage-users.edit', $user->id) }}"><i class="fa-solid fa-pencil"></i> Update</a>
-                              <form method="POST" action="{{ route('manage-users.destroy', $user->id) }}"
+                                  href="{{ route('penempatan.edit', $penempatan->id) }}"><i class="fa-solid fa-pencil"></i> Update</a>
+                              <form method="POST" 
+                                  action="{{ route('penempatan.destroy', $penempatan->id) }}"
                                   style="display: inline-block;">
                                   @csrf
                                   @method('DELETE')
@@ -83,10 +85,7 @@
                             </th>
                           </tr>
                           @endforeach
-                            
-                            
                         </tbody>
-                        
                       </table>
                     </div>
     
