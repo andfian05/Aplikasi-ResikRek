@@ -8,9 +8,11 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Storage;
-use File;
+use PDF;
+use Illuminate\Support\Facades\File;
+
 
 class UserController extends Controller
 {
@@ -156,5 +158,17 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Dihapus!');
+    }
+
+    /**
+     * Export list mahasantri to PDF of the resource Mahasantri.
+     */
+    public function exportPDF()
+    {
+       
+        // $data ['user'] = User::all();
+
+        // $pdf = PDF::loadView('admin.manage-user.pdf-user', $data);
+        // return $pdf->download('Manage-User.pdf');
     }
 }

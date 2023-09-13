@@ -46,8 +46,8 @@
                 
         
                 <div class="input-group">
-                  <span class="input-group-text">Search</span>
-                  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="" name="" id="" value="">
+                  <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; Search Data</span>
+                  <input type="text" class="form-control" placeholder="Pencarian Data [Ketik Data + (Enter)]  -  Reset Pencarian [Hapus Data + (Enter)]" aria-label="" aria-describedby="" name="" id="" value="">
                   
                   
                 </div>

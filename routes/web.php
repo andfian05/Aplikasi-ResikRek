@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PenempatanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DaerahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +78,14 @@ Route::get('/edit-penempatan', function () {
     return view('admin.penempatan.edit-penempatan');
 });
 
+
+/** URL Select Wilayah */
+Route::post('/getKecamatan', [DaerahController::class, 'getKecamatan'])
+    ->name('getKecamatan');
+Route::post('/getDesa', [DaerahController::class, 'getDesa'])
+    ->name('getDesa');
+
+
 /** SUPERADMIN */
 Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {
     /** Dashboard */
@@ -90,6 +100,14 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
 
     /** Data Users */
     Route::resource('manage-users', UserController::class);
+
+    /** PDF */
+    // Route::get('manage-users', [UserController::class, 'exportPDF'])->name('manage-users.pdf');
+
+
+    /** penempatan */
+     /** Data Penempatan */
+     Route::resource('penempatan', PenempatanController::class);
 });
 
 /** Auth */

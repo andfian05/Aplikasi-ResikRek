@@ -33,63 +33,53 @@
 
              
                 <h5 class="card-title fw-semibold mb-5 text-center">Add Penempatan</h5>
-                <a class="btn btn-success btn-sm-2 mb-3" href="/penempatan">
+                <a class="btn btn-success btn-sm-2 mb-3" href="{{ route('penempatan.index') }}">
                   <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                 </a>
                 <div class="card">
                   <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('penempatan.store') }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Pegawai</label>
-                        <input type="text" name="nama" class="form-control" id="nama">
-                        
+                        <label for="user_id" class="form-label">Pegawai</label>
+                        <select name="user_id" id="user_id" class="form-control">
+                          <option value="">--- Pegawai ---</option>
+                          @foreach ($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->nama }}</option>
+                          @endforeach
+                        </select>
                       </div>
                       <div class="mb-3">
                         <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                        <select name="kabupaten" id="kabupaten" type="text" class="form-control">
+                        <select name="kab_id" id="kabupaten" class="form-control">
                           <option value="">--- Kabupaten ---</option>
-                          <option value="1">Jombang</option>
-                          <option value="2">Mojokerto</option>
-                          <option value="3">Kediri</option>
-                          <option value="4">Ngajuk</option>
-                          <option value="5">Dst.</option>
-                          
+                          @foreach ($kabupatens as $kabupaten)
+                            <option value="{{ $kabupaten->id_kab }}">
+                              {{ $kabupaten->nama }}
+                            </option>
+                          @endforeach
                         </select>
                       </div>
                       <div class="mb-3">
                         <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <select name="kabupaten" id="kabupaten" type="text" class="form-control">
+                        <select name="kec_id" id="kecamatan" class="form-control">
                           <option value="">--- Kecamatan ---</option>
-                          <option value="1">Seluruh Kecamatan Jombang</option>
-                          <option value="2">Seluruh Kecamatan Mojokerto</option>
-                          <option value="3">Seluruh Kecamatan Kediri</option>
-                          <option value="4">Seluruh Kecamatan Ngajuk</option>
-                          <option value="5">Seluruh Kecamatan Dst.</option>
-                          
+                          <option value=""></option>
                         </select>
-                        
                       </div>
                       
                       <div class="mb-3">
-                        <label for="username" class="form-label">Kelurahan</label>
-                        <select name="kabupaten" id="kabupaten" type="text" class="form-control">
+                        <label for="desa" class="form-label">Kelurahan</label>
+                        <select name="desa_id" id="desa" class="form-control">
                           <option value="">--- Kelurahan ---</option>
-                          <option value="1">Seluruh Kelurahan Jombang</option>
-                          <option value="2">Seluruh Kelurahan Mojokerto</option>
-                          <option value="3">Seluruh Kelurahan Kediri</option>
-                          <option value="4">Seluruh Kelurahan Ngajuk</option>
-                          <option value="5">Seluruh Kelurahan Dst.</option>
-                          
+                          <option value=""></option>
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="lokasi" class="form-label">Alamat Lengkap</label>
-                        <textarea name="lokasi" class="form-control" id="" cols="6" rows="3"
-                                required></textarea>
+                        <label for="alamat" class="form-label">Alamat Lengkap</label>
+                        <textarea name="alamat" class="form-control" id="alamat" cols="6" 
+                          rows="3" required></textarea>
                       </div>
-                     
-                     
                       <br>
                       <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah Penempatan</button>
                     </form>
@@ -123,6 +113,44 @@
   {{-- Footer.blade.php --}}
   @include('admin.layout.footer')
 
+  
+  <script>
+    $(function () {
+      // select data wilayah
+      $('#kabupaten').on('change', function(){
+        let id_kab = $('#kabupaten').val();
+  
+        $.ajax({
+          type : 'POST',
+          url : "{{ route('getKecamatan') }}",
+          data : {id_kab:id_kab, _token:"{{ csrf_token() }}"},
+          cache : false,
+          success: function(msg) {
+            $('#kecamatan').html(msg);
+          },
+          error: function(data) {
+            console.log('error:', data);
+          },
+        })
+      })
+      $('#kecamatan').on('change', function(){
+        let id_kec = $('#kecamatan').val();
+  
+        $.ajax({
+          type : 'POST',
+          url : "{{ route('getDesa') }}",
+          data : {id_kec:id_kec, _token:"{{ csrf_token() }}"},
+          cache : false,
+          success: function(msg) {
+            $('#desa').html(msg);
+          },
+          error: function(data) {
+            console.log('error:', data);
+          },
+        })
+      })
+    })
+  </script>
 
 </body>
 

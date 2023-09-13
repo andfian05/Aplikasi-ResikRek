@@ -48,9 +48,9 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="penempatan" class="form-label">Penempatan</label>
-                                            <input type="text" name="penempatan" class="form-control"
-                                                value="{{ $user->penempatan }}" id="penempatan" disabled>
-
+                                            {{-- <input type="text" name="penempatan" class="form-control"
+                                                value="{{ $user->penempatan }}" id="penempatan" disabled> --}}
+                                            <textarea name="penempatan" class="form-control" id="penempatan" cols="6" rows="3" required disabled value="{{ $user->penempatan }}">{{ $user->penempatan }}</textarea>
                                         </div>
 
                                         <div class="mb-3">

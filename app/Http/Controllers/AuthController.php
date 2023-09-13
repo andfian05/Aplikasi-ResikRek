@@ -49,6 +49,6 @@ class AuthController extends Controller
             Auth::guard('karyawan')->logout();
         } 
 
-        return view('welcome');
+        return redirect('/login');
     }
 }

@@ -155,6 +155,7 @@
   <meta name="author" content="" />
 
   <title>ResikRek</title>
+  <link rel="shortcut icon" type="image/png" href="{{asset('Templeate/src/assets/images/logos/favicon.png')}}" />
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />

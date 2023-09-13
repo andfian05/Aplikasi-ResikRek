@@ -47,8 +47,13 @@
                       </div>
                       <div class="mb-3">
                         <label for="penempatan" class="form-label">Penempatan</label>
-                        <input type="text" name="penempatan" class="form-control" id="penempatan">
-                        
+                        {{-- <input type="text" name="penempatan" class="form-control" id="penempatan"> --}}
+                        <select name="penempatan" class="form-control" id="penempatan" type="text" >
+                          <option value="">--- Penempatan ---</option>
+                          <option value="Jombang">Jombang</option>
+                          <option value="Mojokerto">Mojokerto</option>
+                          <option value="Dst">Dst</option>
+                        </select>
                       </div>
                       
                       <div class="mb-3">
