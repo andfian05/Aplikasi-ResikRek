@@ -30,9 +30,9 @@
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                   <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Report Overview</h5>
+                    <h5 class="card-title fw-semibold">Laporan Overview</h5>
                   </div>
-                  <div>
+                  {{-- <div>
                     <select class="form-select">
                       <option value="1">Januari</option>
                       <option value="2">Februari</option>
@@ -47,7 +47,10 @@
                       <option value="11">November</option>
                       <option value="12">Desember</option>
                     </select>
-                  </div>
+                  </div> --}}
+
+
+                  
                 </div>
                 <div id="chart"></div>
               </div>
@@ -56,13 +59,13 @@
           <div class="col-lg-4">
             <div class="row">
               <div class="col-lg-12">
-                <!-- Yearly Breakup -->
+               
                 <div class="card overflow-hidden">
                   <div class="card-body p-4">
                     <h5 class="card-title mb-9 fw-semibold">Manage Users</h5>
                     <div class="row align-items-center">
                       <div class="col-8">
-                        {{-- <h4 class="fw-semibold mb-3">4</h4> --}}
+                       
                         <div class="d-flex align-items-center mb-3">
                           <span
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
@@ -72,20 +75,20 @@
                           <p class="fs-3 mb-0">Karyawan</p>
                         </div>
                         <div class="d-flex align-items-center">
-                          <div class="me-4">
+                          {{-- <div class="me-4">
                             <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
                             <span class="fs-2">4</span>
                           </div>
                           <div>
                             <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
                             <span class="fs-2">16</span>
-                          </div>
+                          </div> --}}
                         </div>
                       </div>
                       <div class="col-4">
-                        <div class="d-flex justify-content-center">
+                        {{-- <div class="d-flex justify-content-center">
                           <div id="breakup"></div>
-                        </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
@@ -120,6 +123,75 @@
                   </div>
                   <div id="earning"></div>
                 </div> --}}
+
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Laporan</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        {{-- <h4 class="fw-semibold mb-3">4</h4> --}}
+                        <div class="d-flex align-items-center mb-3">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="fs-3 mb-0">Karyawan</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          {{-- <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">4</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">16</span>
+                          </div> --}}
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        {{-- <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div> --}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Penempatan</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        {{-- <h4 class="fw-semibold mb-3">4</h4> --}}
+                        <div class="d-flex align-items-center mb-3">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="fs-3 mb-0">Karyawan</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          {{-- <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">4</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">16</span>
+                          </div> --}}
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        {{-- <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div> --}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

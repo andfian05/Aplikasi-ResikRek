@@ -25,7 +25,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'nama',
-        'penempatan',
+       
         'foto',
         'username',
         'password',
@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public $sortable = [
         'nama',
-        'penempatan',
+       
         'foto',
         'username',
         'password',

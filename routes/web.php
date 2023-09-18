@@ -79,6 +79,28 @@ Route::get('/edit-penempatan', function () {
 });
 
 
+/** SADMIN */
+Route::get('/sdashboard', function () {
+    return view('sadmin.dashboard');
+});
+
+Route::get('/slaporan', function () {
+    return view('sadmin.laporan.data-laporan');
+});
+
+Route::get('/spenempatan', function () {
+    return view('sadmin.penempatan.data-penempatan');
+});
+
+Route::get('/sdetail-laporan', function () {
+    return view('sadmin.laporan.detail-laporan');
+});
+
+Route::get('/sdetail-penempatan', function () {
+    return view('sadmin.penempatan.detail-penempatan');
+});
+
+
 /** URL Select Wilayah */
 Route::post('/getKecamatan', [DaerahController::class, 'getKecamatan'])
     ->name('getKecamatan');

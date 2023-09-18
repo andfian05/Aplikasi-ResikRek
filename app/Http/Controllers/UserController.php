@@ -32,6 +32,7 @@ class UserController extends Controller
             $users = User::sortable()
             ->where('users.nama','like','%'. $cari .'%')
             ->orWhere('users.role','like','%'. $cari .'%')
+            ->orWhere('users.username','like','%'. $cari .'%')
             ->paginate(5)->onEachSide(1)->fragment('users');
         } else {
             $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
@@ -71,7 +72,7 @@ class UserController extends Controller
 
         User::create([
             'nama' => $data['nama'],
-            'penempatan' => $data['penempatan'],
+          
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
@@ -138,7 +139,7 @@ class UserController extends Controller
         User::where('id', $user->id)
             ->update([
             'nama' => $data['nama'],
-            'penempatan' => $data['penempatan'],
+           
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => $password,

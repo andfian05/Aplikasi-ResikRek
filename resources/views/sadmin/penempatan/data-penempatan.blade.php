@@ -2,7 +2,7 @@
 <html lang="en">
 
 {{-- Header.blade.php --}}
-@include('admin.penempatan.layout.header')
+@include('sadmin.penempatan.layout.header')
 
 <body>
   <!--  Body Wrapper -->
@@ -12,7 +12,7 @@
     
 
     {{-- Sidebar.blade.php --}}
-    @include('admin.penempatan.layout.sidebar')
+    @include('sadmin.penempatan.layout.sidebar')
 
 
 
@@ -21,7 +21,7 @@
       <!--  Header Start -->
       <header class="app-header">
          {{-- Navbar.blade.php --}}
-         @include('admin.penempatan.layout.navbar')
+         @include('sadmin.penempatan.layout.navbar')
       </header>
       
 
@@ -33,9 +33,9 @@
 
               <h5 class="card-title fw-semibold mb-4 text-center">Data Penempatan</h5>
               
-              <a class="btn btn-secondary m-1 mb-3" href="{{ route('penempatan.create') }}">
+              {{-- <a class="btn btn-secondary m-1 mb-3" href="">
                 <i class="fa-solid fa-plus"></i>&nbsp;Add Penempatan
-              </a>
+              </a> --}}
               <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
@@ -48,14 +48,13 @@
         
                 <div class="input-group">
                   <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; Search Data</span>
-                  <input type="text" class="form-control" placeholder="Pencarian Data [Ketik Data + (Enter)]  -  Reset Pencarian [Hapus Data + (Enter)]" aria-label="" aria-describedby="cari" name="cari" id="cari" value="{{ $cari }}">
+                  <input type="text" class="form-control" placeholder="Pencarian Data [Ketik Data + (Enter)]  -  Reset Pencarian [Hapus Data + (Enter)]" aria-label="" aria-describedby="cari" name="cari" id="cari" value="">
                   
                   
                 </div>
                 
                
               </form>
-
               <div class="alert alert-secondary text-primary" role="alert">
                 Kata Kunci Pencarian : Alamat
               </div>
@@ -69,8 +68,8 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">@sortablelink('user_id','Nama')</th>
-                            <th scope="col">@sortablelink('kab_id','Kabupaten')</th>
+                            <th scope="col">Pegawai</th>
+                            <th scope="col">Kabupaten</th>
                             <th scope="col">Alamat</th>
                             
                            
@@ -79,34 +78,25 @@
                         </thead>
                         <tbody class="table-group-divider">
             
-                          @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
-                          @foreach($penempatans as $penempatan)
+                          {{-- @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
+                          @foreach($penempatans as $penempatan) --}}
                           {{-- @php $no = 1; @endphp
                           @foreach ($penempatans as $penempatan) --}}
                           <tr>
-                            <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
-                            <td data-title="Nama">{{ $penempatan->user->nama }}</td>
-                            <td data-title="Kabupaten">{{ $penempatan->kabupaten->nama }}</td>
-                            <td data-title="Alamat">{{ $penempatan->alamat }}</td>
+                            <td scope="row" data-title="No" class="text-center">1</td>
+                            <td data-title="Pegawai">Tata</td>
+                            <td data-title="Kabupaten">Jombang</td>
+                            <td data-title="Alamat">SDN 12</td>
                             <th class="d-flex justify-content-center">
                               <a class="btn btn-primary btn-sm me-2"
-                                  href="{{ route('penempatan.show', $penempatan->id) }}"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
-                              <a class="btn btn-success btn-sm me-2"
-                                  href="{{ route('penempatan.edit', $penempatan->id) }}"><i class="fa-solid fa-pencil"></i> Update</a>
-                              <form method="POST" 
-                                  action="{{ route('penempatan.destroy', $penempatan->id) }}"
-                                  style="display: inline-block;">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button class="btn btn-danger btn-sm"
-                                      onclick="return confirm('Delete?')"><i class="fa-solid fa-trash"></i>  Delete</button>
-                              </form>
+                                  href="/sdetail-penempatan"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
+                              
                             </th>
                           </tr>
-                          @endforeach
+                          {{-- @endforeach --}}
                         </tbody>
                       </table>
-                      {!! $penempatans->appends(Request::except('page'))->render() !!}
+                      {{-- {!! $penempatans->appends(Request::except('page'))->render() !!} --}}
                     </div>
     
                   </form>
@@ -131,7 +121,7 @@
   
 
   {{-- Footer.blade.php --}}
-  @include('admin.layout.footer')
+  @include('sadmin.layout.footer')
 
 
 </body>

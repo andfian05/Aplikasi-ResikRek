@@ -6,10 +6,7 @@
         </a>
       </li>
       <li class="nav-item">
-        {{-- <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-          <i class="ti ti-bell-ringing"></i>
-          <div class="notification bg-primary rounded-circle"></div>
-        </a> --}}
+        
       </li>
     </ul>
     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
@@ -19,7 +16,7 @@
           <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
             aria-expanded="false">
              &nbsp;
-            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}" alt="" width="35" 
+            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}" alt="" width="35"  
               height="35" class="rounded-circle">
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
@@ -28,7 +25,7 @@
                 <i class="ti ti-user fs-6"></i>
                 <p class="mb-0 fs-3"></p>
               </a>
-              
+             
               <a href="#" role="button" 
                 class="btn btn-outline-primary mx-3 mt-2 d-block"
                 onclick="event.preventDefault(); document.getElementById('logout').submit()">

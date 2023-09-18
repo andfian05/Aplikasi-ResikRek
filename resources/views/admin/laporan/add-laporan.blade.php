@@ -40,36 +40,40 @@
                   <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
                       @csrf
+
+                      <div class="alert alert-danger" role="alert">
+                        (*) Wajib Mengisi
+                      </div>
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control" id="nama">
+                        <label for="nama" class="form-label">Nama <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="text" name="nama" class="form-control" id="nama" required>
                         
                       </div>
                       <div class="mb-3">
-                        <label for="before" class="form-label">Before</label>
-                        <input type="file" name="before" class="form-control" id="before">
+                        <label for="before" class="form-label">Before <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="file" name="before" class="form-control" id="before" required>
                         
                       </div>
                       
                       <div class="mb-3">
-                        <label for="after" class="form-label">After</label>
-                        <input type="file" name="after" class="form-control" id="after">
+                        <label for="after" class="form-label">After <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="file" name="after" class="form-control" id="after" required>
                       </div>
                       
                       
 
                       <div class="mb-3">
-                        <label for="desc" class="form-label">Deskripsi</label>
+                        <label for="desc" class="form-label">Deskripsi <sup class="text-danger" font-size="20px">* </sup></label>
                         <textarea name="desc" class="form-control" id="" cols="6" rows="3"
                                 required></textarea>
                       </div>
                       <div class="mb-3">
-                        <label for="lokasi" class="form-label">Lokasi</label>
+                        <label for="lokasi" class="form-label">Lokasi <sup class="text-danger" font-size="20px">* </sup></label>
                         <textarea name="lokasi" class="form-control" id="" cols="6" rows="3"
                                 required></textarea>
                       </div>
                       <div class="mb-3">
-                        <label for="catatan" class="form-label">Catatan</label>
+                        <label for="catatan" class="form-label">Catatan <sup class="text-danger" font-size="20px">* </sup></label>
                         <textarea name="catatan" class="form-control" id="" cols="6" rows="3"
                                 required></textarea>
                       </div>

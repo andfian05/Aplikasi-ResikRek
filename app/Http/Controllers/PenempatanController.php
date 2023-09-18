@@ -24,8 +24,9 @@ class PenempatanController extends Controller
     public function index(Request $request)
     {
         $admin = Auth::user();
-        
+        $users = User::all();
         $penempatans = Penempatan::with(['user', 'kabupaten'])->get();
+        
 
         // $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatan');
 
@@ -35,15 +36,23 @@ class PenempatanController extends Controller
             $penempatans = Penempatan::sortable()
             ->where('penempatan.user_id','like','%'. $cari .'%')
             ->orWhere('penempatan.alamat','like','%'. $cari .'%')
-            ->paginate(5)->onEachSide(1)->fragment('penempatan');
+            ->orWhere('penempatan.kab_id','like','%'. $cari .'%')
+            ->paginate(5)->onEachSide(1)->fragment('penempatans');
+
+           
         } else {
-            $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatan');
+            $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatans');
+
+            
         }
+
+        
 
         return view('admin.penempatan.data-penempatan')->with([
             'admin' => $admin,
             'penempatans' => $penempatans,
             'cari' => $cari,
+            'users' => $users,
         ]);
     }
 

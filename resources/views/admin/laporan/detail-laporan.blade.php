@@ -38,15 +38,17 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="" method="POST" enctype="multipart/form-data">
-                                        @csrf
+                                    <form>
+                                        <div class="alert alert-dark text-white" role="alert">
+                                            (*) Hanya Melihat
+                                        </div>
                                         <div class="mb-3">
-                                          <label for="nama" class="form-label">Nama</label>
+                                          <label for="nama" class="form-label">Nama <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <input type="text" name="nama" class="form-control" id="nama" disabled>
                                           
                                         </div>
                                         <div class="mb-3">
-                                            <label for="foto" class="form-label mb-5">Before</label>
+                                            <label for="foto" class="form-label mb-3">Before <sup class="text-secondary" font-size="20px">* </sup></label>
                                             {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
@@ -91,7 +93,7 @@
 
                                         </div>
                                         <div class="mb-3">
-                                            <label for="foto" class="form-label mb-5 mt-5">After</label>
+                                            <label for="foto" class="form-label mb-3 mt-3">After <sup class="text-secondary" font-size="20px">* </sup></label>
                                             {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
@@ -134,7 +136,7 @@
                                             </div>
 
 
-                                        </div><br><br>
+                                        </div>
 
                                         {{-- <div class="row form-label mb-5 mt-6">
                                             <div class="col-md-6">
@@ -173,17 +175,17 @@
                                         
                   
                                         <div class="mb-3">
-                                          <label for="desc" class="form-label">Deskripsi</label>
+                                          <label for="desc" class="form-label">Deskripsi <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="desc" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="lokasi" class="form-label">Lokasi</label>
+                                          <label for="lokasi" class="form-label">Lokasi <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="lokasi" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="catatan" class="form-label">Catatan</label>
+                                          <label for="catatan" class="form-label">Catatan <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="catatan" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
