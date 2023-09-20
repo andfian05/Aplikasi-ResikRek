@@ -12,6 +12,9 @@ use Kyslik\ColumnSortable\Sortable;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    use HasFactory;
+    use Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +25,6 @@ class User extends Authenticatable
 
     protected $fillable = [
         'nama',
-        'penempatan',
         'foto',
         'username',
         'password',
@@ -51,7 +53,6 @@ class User extends Authenticatable
 
     public $sortable = [
         'nama',
-        'penempatan',
         'foto',
         'username',
         'password',

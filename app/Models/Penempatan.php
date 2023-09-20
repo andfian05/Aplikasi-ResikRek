@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Penempatan extends Model
 {
     use HasFactory;
+    use Sortable;
 
     protected $table = 'penempatan';
     protected $fillable = [
@@ -33,4 +35,8 @@ class Penempatan extends Model
     {
         return $this->belongsTo(Desa::class, 'desa_id', 'id_desa');
     }
+
+    public $sortable = [
+        'user_id', 'kab_id', 'kec_id', 'desa_id', 'alamat',
+    ];
 }

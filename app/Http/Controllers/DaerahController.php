@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Models\Kecamatan;
 use App\Models\Desa;
+use App\Models\Penempatan;
 
 class DaerahController extends Controller
 {
     /**
-     * get kecamatam
+     * Displaying districts data based on regency id.
      */
     public function getKecamatan(Request $request)
     {
@@ -23,7 +24,7 @@ class DaerahController extends Controller
     }
 
     /**
-     * get Desa
+     * Displaying villages data based on district id.
      */
     public function getDesa(Request $request)
     {
@@ -32,6 +33,18 @@ class DaerahController extends Controller
 
         foreach ($desas as $desa) {
             echo "<option value='$desa->id_desa'>$desa->nama</option>";
+        }
+    }
+
+    /** 
+     * Displaying location data based on user id in placement data.
+     */
+    public function getLokasi(Request $request)
+    {
+        $id_user = $request->id_user;
+        $lokasis = Penempatan::where('user_id', $id_user)->get();
+        foreach ($lokasis as $lokasi) {
+            echo "<option value='$lokasi->alamat'>$lokasi->alamat</option>";
         }
     }
 }

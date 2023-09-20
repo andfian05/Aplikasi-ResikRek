@@ -8,9 +8,11 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Hash;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Storage;
-use File;
+use PDF;
+use Illuminate\Support\Facades\File;
+
 
 class UserController extends Controller
 {
@@ -20,13 +22,26 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $admin = Auth::user();
-        $users = User::all();
+        // $users = User::all();
 
-        // $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+        $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+
+        $cari = $request->query('cari');
+        
+        if(!empty($cari)){
+            $users = User::sortable()
+            ->where('users.nama','like','%'. $cari .'%')
+            ->orWhere('users.role','like','%'. $cari .'%')
+            ->orWhere('users.username','like','%'. $cari .'%')
+            ->paginate(5)->onEachSide(1)->fragment('users');
+        } else {
+            $users = User::sortable()->paginate(5)->onEachSide(1)->fragment('users');
+        }
 
         return view('admin.manage-user.data-user')->with([
             'admin' => $admin,
             'users' => $users,
+            'cari' => $cari,
         ]);
     }
 
@@ -57,7 +72,6 @@ class UserController extends Controller
 
         User::create([
             'nama' => $data['nama'],
-            'penempatan' => $data['penempatan'],
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
@@ -124,7 +138,7 @@ class UserController extends Controller
         User::where('id', $user->id)
             ->update([
             'nama' => $data['nama'],
-            'penempatan' => $data['penempatan'],
+           
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => $password,
@@ -147,11 +161,14 @@ class UserController extends Controller
     }
 
     /**
-     * Export resource to pdf.
+     * Export list user to PDF of the resource Users.
      */
     public function exportPDF()
     {
-        $users = User::all();
-        
+       
+        // $data ['user'] = User::all();
+
+        // $pdf = PDF::loadView('admin.manage-user.pdf-user', $data);
+        // return $pdf->download('Manage-User.pdf');
     }
 }

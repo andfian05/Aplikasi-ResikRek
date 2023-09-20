@@ -41,8 +41,12 @@
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
+
+                                        <div class="alert alert-info" role="alert">
+                                          (*) Hanya Opsional 
+                                        </div>
                                         <div class="mb-3">
-                                          <label for="user_id" class="form-label">Pegawai</label>
+                                          <label for="user_id" class="form-label">Pegawai <sup class="text-primary" font-size="20px">* </sup></label>
                                           <select name="user_id" id="user_id" 
                                              class="form-control">
                                             @foreach ($users as $user)
@@ -56,7 +60,7 @@
                                         </div>
                                         <div class="mb-3">
                                           <label for="kabupaten" 
-                                            class="form-label">Kabupaten / Kota</label>
+                                            class="form-label">Kabupaten / Kota <sup class="text-primary" font-size="20px">* </sup></label>
                                           <select name="kab_id" id="kabupaten" 
                                              class="form-control">
                                             @foreach ($kabupatens as $kabupaten)
@@ -69,7 +73,7 @@
                                           </select>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="kecamatan" class="form-label">Kecamatan</label>
+                                          <label for="kecamatan" class="form-label">Kecamatan <sup class="text-primary" font-size="20px">* </sup></label>
                                           <select name="kec_id" id="kecamatan" 
                                              class="form-control">
                                             @foreach ($kecamatans as $kecamatan)
@@ -83,7 +87,7 @@
                                         </div>
                                         
                                         <div class="mb-3">
-                                          <label for="desa" class="form-label">Kelurahan / Desa</label>
+                                          <label for="desa" class="form-label">Kelurahan / Desa <sup class="text-primary" font-size="20px">* </sup></label>
                                           <select name="desa_id" id="desa"  
                                             class="form-control">
                                             @foreach ($desas as $desa)
@@ -96,7 +100,7 @@
                                           </select>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="alamat" class="form-label">Alamat Lengkap</label>
+                                          <label for="alamat" class="form-label">Alamat Lengkap <sup class="text-primary" font-size="20px">* </sup></label>
                                           <textarea name="alamat" class="form-control" 
                                             id="alamat" cols="6" rows="3"
                                             required>

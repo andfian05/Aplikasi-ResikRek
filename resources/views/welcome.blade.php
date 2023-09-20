@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,4 +137,170 @@
             </div>
         </div>
     </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>ResikRek</title>
+  <link rel="shortcut icon" type="image/png" href="{{asset('Templeate/src/assets/images/logos/favicon.png')}}" />
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{asset('Templeate - 2/css/bootstrap.css')}}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{{asset('Templeate - 2/css/style.css')}}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{asset('Templeate - 2/css/responsive.css')}}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{asset('Templeate/src/assets/css/styles.min.css')}}" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="side_heading">
+        {{-- <h5>
+          R
+          E
+          S
+          I
+          K
+          R
+          E
+          K
+        </h5> --}}
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-5 offset-md-1">
+            <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+              <ol class="carousel-indicators">
+                {{-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                  01
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                  02
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                  03
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3">
+                  04
+                </li> --}}
+                
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="img-box b-1">
+                    {{-- <img src="{{asset('Templeate - 2/images/slider-img.png')}}" alt="" /> --}}
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+                    </script>
+                    <lottie-player src="{{asset('Templeate - 2/login.json')}}"
+                        background="transparent" speed="2" height="100%" width="100%" class="text-center" loop autoplay>
+                    </lottie-player>
+
+                    
+
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+          <div class=" col-md-5 offset-md-1">
+            <div class="detail-box"> <br><br>
+                <a href="" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                    <img src="{{asset('icon/resik-logo.png')}}" class="rounded mx-auto d-block"
+                        width="180" alt="">
+                </a>
+                <p class="text-center">Your Health, Our Priority</p>
+                <br><br>
+              <p>
+                Selamat Datang Bapak/Ibu Pemilik Bisnis <b>ResikRek</b> , Silahkan Masuk Kedalam Halaman Login Aplikasi <b>ResikRek</b> Untuk Mengetahui Perfoma Kinerja Bisnis-nya. 
+              </p>
+              <p>Awali Dengan Basmallah (بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم)</p>
+
+              <div class="btn-box align-items-center justify-content-between ">
+                <a href="/login" class="btn-1 rounded-2">
+                  Login
+                </a>
+                
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+ 
+
+  <script type="text/javascript" src="{{asset('Templeate - 2/js/jquery-3.4.1.min.js')}} "></script>
+  <script type="text/javascript" src="{{asset('Templeate - 2/js/bootstrap.js')}} "></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document
+        .querySelector(".custom_menu-btn")
+        .classList.toggle("menu_btn-style");
+    }
+  </script>
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 35,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    });
+  </script>
+  <!-- end owl carousel script -->
+
+</body>
+
 </html>

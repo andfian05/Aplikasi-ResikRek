@@ -40,28 +40,27 @@
                   <div class="card-body">
                     <form action="{{ route('manage-users.store') }}" method="POST" enctype="multipart/form-data">
                       @csrf
+
+                      <div class="alert alert-danger" role="alert">
+                        (*) Wajib Mengisi
+                      </div>
+
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control" id="nama">
+                        <label for="nama" class="form-label">Nama <sup class="text-danger" font-size="20px">*</sup></label>
+                        <input type="text" name="nama" class="form-control" id="nama" required>
                         
                       </div>
                       <div class="mb-3">
-                        <label for="penempatan" class="form-label">Penempatan</label>
-                        <input type="text" name="penempatan" class="form-control" id="penempatan">
-                        
-                      </div>
-                      
-                      <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" id="username">
+                        <label for="username" class="form-label">Username <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="text" name="username" class="form-control" id="username" required>
                       </div>
                       <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password">
+                        <label for="password" class="form-label">Password <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="password" name="password" class="form-control" id="password" required>
                       </div>
                       <div class="mb-3">
-                        <label for="role" class="form-label">Pemangku Kepentingan</label>
-                        <select name="role" id="role" type="text" class="form-control">
+                        <label for="role" class="form-label">Pemangku Kepentingan <sup class="text-danger" font-size="20px">* </sup></label>
+                        <select name="role" id="role" type="text" class="form-control" required>
                           <option value="">--- Role ---</option>
                           <option value="Superadmin">Super Administrator</option>
                           <option value="Admin">Administrator</option>
@@ -69,8 +68,8 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
-                        <input type="file" name="foto" class="form-control" id="foto">
+                        <label for="foto" class="form-label">Foto <sup class="text-danger" font-size="20px">* </sup></label>
+                        <input type="file" name="foto" class="form-control" id="foto" required>
                         
                       </div>
                       <br>

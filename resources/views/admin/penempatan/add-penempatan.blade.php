@@ -40,9 +40,13 @@
                   <div class="card-body">
                     <form action="{{ route('penempatan.store') }}" method="POST" enctype="multipart/form-data">
                       @csrf
+
+                      <div class="alert alert-danger" role="alert">
+                        (*) Wajib Mengisi
+                      </div>
                       <div class="mb-3">
-                        <label for="user_id" class="form-label">Pegawai</label>
-                        <select name="user_id" id="user_id" class="form-control">
+                        <label for="user_id" class="form-label">Pegawai <sup class="text-danger" font-size="20px">*</sup></label>
+                        <select name="user_id" id="user_id" class="form-control" required>
                           <option value="">--- Pegawai ---</option>
                           @foreach ($users as $user)
                             <option value="{{ $user->id }}">{{ $user->nama }}</option>
@@ -50,9 +54,9 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="kabupaten" class="form-label">Kabupaten/Kota</label>
-                        <select name="kab_id" id="kabupaten" class="form-control">
-                          <option value="">--- Kabupaten ---</option>
+                        <label for="kabupaten" class="form-label">Kabupaten/Kota <sup class="text-danger" font-size="20px">*</sup></label>
+                        <select name="kab_id" id="kabupaten" class="form-control" required>
+                          <option value="">--- Kabupaten/Kota ---</option>
                           @foreach ($kabupatens as $kabupaten)
                             <option value="{{ $kabupaten->id_kab }}">
                               {{ $kabupaten->nama }}
@@ -61,22 +65,22 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="kecamatan" class="form-label">Kecamatan</label>
-                        <select name="kec_id" id="kecamatan" class="form-control">
+                        <label for="kecamatan" class="form-label">Kecamatan <sup class="text-danger" font-size="20px">*</sup></label>
+                        <select name="kec_id" id="kecamatan" class="form-control" required>
                           <option value="">--- Kecamatan ---</option>
                           <option value=""></option>
                         </select>
                       </div>
                       
                       <div class="mb-3">
-                        <label for="desa" class="form-label">Kelurahan</label>
-                        <select name="desa_id" id="desa" class="form-control">
-                          <option value="">--- Kelurahan ---</option>
+                        <label for="desa" class="form-label">Kelurahan/Desa <sup class="text-danger" font-size="20px">*</sup></label>
+                        <select name="desa_id" id="desa" class="form-control" required>
+                          <option value="">--- Kelurahan/Desa ---</option>
                           <option value=""></option>
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat Lengkap</label>
+                        <label for="alamat" class="form-label">Alamat Lengkap <sup class="text-danger" font-size="20px">*</sup></label>
                         <textarea name="alamat" class="form-control" id="alamat" cols="6" 
                           rows="3" required></textarea>
                       </div>
@@ -113,6 +117,7 @@
   {{-- Footer.blade.php --}}
   @include('admin.layout.footer')
 
+  
   <script>
     $(function () {
       // select data wilayah
@@ -150,7 +155,6 @@
       })
     })
   </script>
-
 
 </body>
 

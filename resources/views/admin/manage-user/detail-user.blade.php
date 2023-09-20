@@ -36,25 +36,29 @@
                                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
                             </a>
 
-                           
+
                             <div class="card">
                                 <div class="card-body">
                                     <form>
+
+                                        <div class="alert alert-dark text-white" role="alert">
+                                            (*) Hanya Melihat
+                                        </div>
+
                                         <div class="mb-3">
-                                            <label for="nama" class="form-label">Nama</label>
+                                            <label for="nama" class="form-label">Nama <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <input type="text" name="nama" class="form-control"
                                                 value="{{ $user->nama }}" id="nama" disabled>
 
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="penempatan" class="form-label">Penempatan</label>
-                                            <input type="text" name="penempatan" class="form-control"
-                                                value="{{ $user->penempatan }}" id="penempatan" disabled>
-
-                                        </div>
+                                           
+                                            <textarea name="penempatan" class="form-control" id="penempatan" cols="6" rows="3" required disabled value="{{ $user->penempatan }}">{{ $user->penempatan }}</textarea>
+                                        </div> --}}
 
                                         <div class="mb-3">
-                                            <label for="role" class="form-label">Pemangku Kepentingan</label>
+                                            <label for="role" class="form-label">Pemangku Kepentingan <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="role" id="role" type="text" class="form-control"
                                                 aria-describedby="" disabled>
                                                 <option value="{{ $user->role }}">--- {{ $user->role }} ---</option>
@@ -64,64 +68,97 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="username" class="form-label">Username</label>
+                                            <label for="username" class="form-label">Username <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <input type="text" name="username" class="form-control"
                                                 value="{{ $user->username }}" id="username" disabled>
 
                                         </div>
 
-                                        <div class="mb-3">
-                                            <label for="foto" class="form-label mb-5">Foto</label>
+                                        <div class="mb-2">
+                                            <label for="foto" class="form-label mb-4">Foto <sup class="text-secondary" font-size="20px">* </sup></label>
                                             {{-- <div class="text-center">
                                                 @empty($user->photo)
-                                                <img src="{{asset('foto/profile/no-photo.png')}}" style="height: 10rem;"
-                                                    class="img-circle elevation-2" alt="Image {{ $user->nama }}">
-                                                @else
-                                                <img src="{{asset('foto/profile')}}/{{ $user->photo }}"
-                                                    style="height: 10rem;" class="img-circle elevation-2"
-                                                    alt="Image {{ $user->nama }}">
-                                                @endempty
-                                            </div> --}}
+                                                <img src="{{asset('foto/profile/no-photo.png')}}" style="height:
+                                            10rem;"
+                                            class="img-circle elevation-2" alt="Image {{ $user->nama }}">
+                                            @else
+                                            <img src="{{asset('foto/profile')}}/{{ $user->photo }}"
+                                                style="height: 10rem;" class="img-circle elevation-2"
+                                                alt="Image {{ $user->nama }}">
+                                            @endempty
+                                        </div> --}}
 
-                                            <div class="text-center">
+                                        {{-- <div class="text-center">
+                                            @empty($user->foto)
+                                            <img src="{{asset('storage/img/no-photo.png')}}" style="height: 20rem;"
+                                        class="img-circle elevation-2 img-thumbnail shadow-lg"
+                                        alt="{{ $user->username }}">
+                                        @else
+                                        <img src="{{ asset('storage/img/'. $user->foto) }}" style="height: 20rem;"
+                                            class="img-circle elevation-2 img-thumbnail shadow-lg"
+                                            alt="{{ $user->username }}">
+                                        @endempty
+                                </div> --}}
+
+
+                                <div class="col-sm-7 col-xl-5">
+                                    <div class="card overflow-hidden rounded-2">
+                                        <div class="position-relative">
+                                            <a href="javascript:void(0)">
+
                                                 @empty($user->foto)
-                                                <img src="{{asset('storage/img/no-photo.png')}}" style="height: 20rem;"
-                                                    class="img-circle elevation-2 img-thumbnail shadow-lg" alt="{{ $user->username }}">
+                                                <img src="{{asset('storage/img/no-photo.png')}}"
+                                                    class="card-img-top rounded-0" alt="{{ $user->username }}">
                                                 @else
                                                 <img src="{{ asset('storage/img/'. $user->foto) }}"
-                                                    style="height: 20rem;" class="img-circle elevation-2 img-thumbnail shadow-lg"
-                                                    alt="{{ $user->username }}">
+                                                    class="card-img-top rounded-0" alt="{{ $user->username }}">
                                                 @endempty
-                                            </div>
-
-
+                                            </a>
+                                            <a href="javascript:void(0)"
+                                                class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i>
+                                            </a>
                                         </div>
-                                        {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
-                                    </form>
+
+
+                                        <div class="card-body pt-3 p-4">
+                                            <h6 class="fw-semibold fs-4">{{ $user->nama }}</h6>
+                                            <div class="d-flex align-items-center justify-content-between">
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </div>
-
-                            {{-- </div> --}}
-
-
-
-
-
-
-
-
+                            {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                            </form>
                         </div>
                     </div>
+
+                    {{-- </div> --}}
+
+
+
+
+
+
+
+
                 </div>
             </div>
-
-
-
-
-
-
-
         </div>
+    </div>
+
+
+
+
+
+
+
+    </div>
     </div>
 
 

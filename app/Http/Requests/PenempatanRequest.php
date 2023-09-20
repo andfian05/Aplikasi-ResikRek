@@ -22,7 +22,9 @@ class PenempatanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+        
+            'alamat' => 'required',
+            
         ];
     }
 }

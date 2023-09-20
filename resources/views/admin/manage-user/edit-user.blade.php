@@ -41,29 +41,30 @@
                     <form action="{{ route('manage-users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
+
+                     
+                      <div class="alert alert-info" role="alert">
+                        (*) Hanya Opsional 
+                      </div>
+
                       <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
+                        <label for="nama" class="form-label">Nama <sup class="text-primary" font-size="20px">* </sup></label>
                         <input type="text" name="nama" class="form-control" id="nama" 
                           value="{{ old('nama') ? old('nama') : $user->nama }}">
                       </div>
-                      <div class="mb-3">
-                        <label for="penempatan" class="form-label">Penempatan</label>
-                        <input type="text" name="penempatan" class="form-control" id="penempatan"  
-                          value="{{ old('penempatan') ? old('penempatan') : $user->penempatan }}">
-                      </div>
                       
                       <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">Username <sup class="text-primary" font-size="20px">* </sup></label>
                         <input type="text" name="username" class="form-control" id="username" 
                           value="{{ old('username') ? old('username') : $user->username }}">
                       </div>
                       <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password <sup class="text-primary" font-size="20px">* </sup></label>
                         <input type="password" name="password" class="form-control" id="password" 
                           value="{{ old('password') ? old('password') : $user->password }}">
                       </div>
                       <div class="mb-3">
-                        <label for="role" class="form-label">Pemangku Kepentingan</label>
+                        <label for="role" class="form-label">Pemangku Kepentingan <sup class="text-primary" font-size="20px">* </sup></label>
                         <select name="role" id="role" type="text" class="form-control">
                           @if ($user->role == "Superadmin")
                             <option value="Superadmin" selected>Super Administrator</option>
@@ -81,7 +82,7 @@
                         </select>
                       </div>
                       <div class="mb-3">
-                        <label for="foto" class="form-label">Foto</label>
+                        <label for="foto" class="form-label">Foto <sup class="text-primary" font-size="20px">* </sup></label>
                         <input type="file" name="foto" class="form-control" id="foto">
                         @empty($user->foto)
                           <img class="mt-2 img-circle elevation-2 img-thumbnail shadow-lg"  src="{{ asset('storage/img/no-photo.png') }}" 
@@ -91,7 +92,7 @@
                             alt="{{ $user->username }}" width="10%">
                         @endempty
                       </div>
-                      </div>
+                     
                       <br>
                       <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Update Data</button>
                     </form>

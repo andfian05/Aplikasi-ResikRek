@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="/laporan" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('laporan.index') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-file-description"></i>
               </span>
@@ -58,7 +58,7 @@
           </li>
           
           
-        <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
+        {{-- <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
           <div class="d-flex">
             <div class="unlimited-access-title me-3">
               <h6 class="fw-semibold fs-4 mb-6 text-dark w-85 mt-3">ResikRek Application</h6>
@@ -66,6 +66,26 @@
             </div>
             <div class="unlimited-access-img">
               <img src="{{asset('Templeate/src/assets/images/backgrounds/rocket.png')}}" alt="" class="img-fluid">
+            </div>
+          </div>
+        </div> --}}
+
+        <div class="unlimited-access hide-menu position-relative mb-7 mt-5 rounded">
+          <div class="d-flex">
+            <div class="unlimited-access-title me-3">
+              <h6 class="fw-semibold fs-4 mb-6 text-dark w-85 mt-3">ResikRek 
+                Application</h6>
+              
+            </div>
+            <div class="unlimited-access-img">
+              {{-- <img src="{{asset('Templeate/src/assets/images/backgrounds/rocket.png')}}" alt="" class="img-fluid"> --}}
+              &nbsp;<img src="{{asset('Templeate - 2/Undraw1.svg')}}" alt="" height="210px" width="160px" class="img-fluid position-relative">
+              {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+              </script>
+              <lottie-player src="{{asset('Templeate - 2/Jet.json')}}"
+                  background="transparent" speed="2" height="50px" width="50px" class="text-center" loop autoplay>
+              </lottie-player> --}}
+              
             </div>
           </div>
         </div>

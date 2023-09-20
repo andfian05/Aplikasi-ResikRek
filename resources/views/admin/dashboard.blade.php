@@ -30,9 +30,9 @@
               <div class="card-body">
                 <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
                   <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Report Overview</h5>
+                    <h5 class="card-title fw-semibold">Laporan Overview</h5>
                   </div>
-                  <div>
+                  {{-- <div>
                     <select class="form-select">
                       <option value="1">Januari</option>
                       <option value="2">Februari</option>
@@ -47,7 +47,10 @@
                       <option value="11">November</option>
                       <option value="12">Desember</option>
                     </select>
-                  </div>
+                  </div> --}}
+
+
+                  
                 </div>
                 <div id="chart"></div>
               </div>
@@ -56,36 +59,36 @@
           <div class="col-lg-4">
             <div class="row">
               <div class="col-lg-12">
-                <!-- Yearly Breakup -->
+               
                 <div class="card overflow-hidden">
                   <div class="card-body p-4">
-                    <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
+                    <h5 class="card-title mb-9 fw-semibold">Manage Users</h5>
                     <div class="row align-items-center">
                       <div class="col-8">
-                        <h4 class="fw-semibold mb-3">$36,358</h4>
+                       
                         <div class="d-flex align-items-center mb-3">
                           <span
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
+                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="fs-3 mb-0">Karyawan</p>
                         </div>
                         <div class="d-flex align-items-center">
-                          <div class="me-4">
+                          {{-- <div class="me-4">
                             <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
+                            <span class="fs-2">4</span>
                           </div>
                           <div>
                             <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
+                            <span class="fs-2">16</span>
+                          </div> --}}
                         </div>
                       </div>
                       <div class="col-4">
-                        <div class="d-flex justify-content-center">
+                        {{-- <div class="d-flex justify-content-center">
                           <div id="breakup"></div>
-                        </div>
+                        </div> --}}
                       </div>
                     </div>
                   </div>
@@ -93,12 +96,12 @@
               </div>
               <div class="col-lg-12">
                 <!-- Monthly Earnings -->
-                <div class="card">
+                {{-- <div class="card">
                   <div class="card-body">
                     <div class="row alig n-items-start">
                       <div class="col-8">
-                        <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                        <h4 class="fw-semibold mb-3">$6,820</h4>
+                        <h5 class="card-title mb-9 fw-semibold"> Manage Users </h5>
+                        <h4 class="fw-semibold mb-3">4</h4>
                         <div class="d-flex align-items-center pb-1">
                           <span
                             class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
@@ -119,13 +122,85 @@
                     </div>
                   </div>
                   <div id="earning"></div>
+                </div> --}}
+
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Laporan</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        {{-- <h4 class="fw-semibold mb-3">4</h4> --}}
+                        <div class="d-flex align-items-center mb-3">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="fs-3 mb-0">Karyawan</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          {{-- <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">4</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">16</span>
+                          </div> --}}
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        {{-- <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div> --}}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Penempatan</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        {{-- <h4 class="fw-semibold mb-3">4</h4> --}}
+                        <div class="d-flex align-items-center mb-3">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="fs-3 mb-0">Karyawan</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          {{-- <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">4</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">16</span>
+                          </div> --}}
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        {{-- <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div> --}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
       
-        <div class="row">
+
+        
+
+        {{-- <div class="row">
           <div class="col-sm-6 col-xl-3">
             <div class="card overflow-hidden rounded-2">
               <div class="position-relative">
@@ -134,14 +209,8 @@
               <div class="card-body pt-3 p-4">
                 <h6 class="fw-semibold fs-4">Boat Headphone</h6>
                 <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="fw-semibold fs-4 mb-0">$50 <span class="ms-2 fw-normal text-muted fs-3"><del>$65</del></span></h6>
-                  <ul class="list-unstyled d-flex align-items-center mb-0">
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                  </ul>
+                  
+                 
                 </div>
               </div>
             </div>
@@ -154,14 +223,8 @@
               <div class="card-body pt-3 p-4">
                 <h6 class="fw-semibold fs-4">MacBook Air Pro</h6>
                 <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="fw-semibold fs-4 mb-0">$650 <span class="ms-2 fw-normal text-muted fs-3"><del>$900</del></span></h6>
-                  <ul class="list-unstyled d-flex align-items-center mb-0">
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                  </ul>
+                  
+                 
                 </div>
               </div>
             </div>
@@ -174,14 +237,8 @@
               <div class="card-body pt-3 p-4">
                 <h6 class="fw-semibold fs-4">Red Valvet Dress</h6>
                 <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="fw-semibold fs-4 mb-0">$150 <span class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span></h6>
-                  <ul class="list-unstyled d-flex align-items-center mb-0">
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                  </ul>
+                  
+                 
                 </div>
               </div>
             </div>
@@ -194,19 +251,13 @@
               <div class="card-body pt-3 p-4">
                 <h6 class="fw-semibold fs-4">Cute Soft Teddybear</h6>
                 <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="fw-semibold fs-4 mb-0">$285 <span class="ms-2 fw-normal text-muted fs-3"><del>$345</del></span></h6>
-                  <ul class="list-unstyled d-flex align-items-center mb-0">
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="me-1" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                    <li><a class="" href="javascript:void(0)"><i class="ti ti-star text-warning"></i></a></li>
-                  </ul>
+                  
+                 
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
         <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4">Design and Developed by <a href="http://petikjombang.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">petikjombang.com</a></p>
         </div>

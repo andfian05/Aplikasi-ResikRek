@@ -2,7 +2,7 @@
 <html lang="en">
 
 {{-- Header.blade.php --}}
-@include('admin.laporan.layout.header')
+@include('sadmin.laporan.layout.header')
 
 <body>
     <!--  Body Wrapper -->
@@ -11,7 +11,7 @@
 
 
         {{-- Sidebar.blade.php --}}
-        @include('admin.laporan.layout.sidebar')
+        @include('sadmin.laporan.layout.sidebar')
 
 
 
@@ -20,7 +20,7 @@
             <!--  Header Start -->
             <header class="app-header">
                 {{-- Navbar.blade.php --}}
-                @include('admin.laporan.layout.navbar')
+                @include('sadmin.laporan.layout.navbar')
             </header>
 
 
@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold mb-5 text-center">Detail Laporan</h5>
-                            <a class="btn btn-success m-1 mb-3" href="/laporan">
+                            <a class="btn btn-success m-1 mb-3" href="/slaporan">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
                             <a class="btn btn-danger m-1 mb-3" href="">
@@ -38,16 +38,20 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="" method="POST" enctype="multipart/form-data">
-                                        @csrf
+                                    <form>
+                                        
+
+                                        <div class="alert alert-dark text-white" role="alert">
+                                            (*) Hanya Melihat
+                                        </div>
                                         <div class="mb-3">
-                                          <label for="nama" class="form-label">Nama</label>
+                                          <label for="nama" class="form-label">Nama <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <input type="text" name="nama" class="form-control" id="nama" disabled>
                                           
                                         </div>
                                         <div class="mb-3">
-                                            <label for="foto" class="form-label mb-5">Before</label>
-                                            <div class="text-left">
+                                            <label for="foto" class="form-label mb-3">Before <sup class="text-secondary" font-size="20px">* </sup></label>
+                                            {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
                                                     class="img-circle elevation-2 img-thumbnail shadow-lg" alt="Image ">
@@ -56,13 +60,43 @@
                                                     style="height: 10rem;" class="img-circle elevation-2 img-thumbnail shadow-lg"
                                                     alt="Image ">
                                                 @endempty
+                                            </div> --}}
+
+                                            <div class="col-sm-7 col-xl-5">
+                                                <div class="card overflow-hidden rounded-2">
+                                                    <div class="position-relative">
+                                                        <a href="javascript:void(0)">
+            
+                                                           
+                                                            {{-- <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt=""> --}}
+                                                           
+                                                            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt="">
+                                                            
+                                                        </a>
+                                                        <a href="javascript:void(0)"
+                                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i>
+                                                        </a>
+                                                    </div>
+            
+            
+                                                    <div class="card-body pt-3 p-4">
+                                                        <h6 class="fw-semibold fs-4">Nama Pegawai</h6>
+                                                        <div class="d-flex align-items-center justify-content-between">
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
 
                                         </div>
                                         <div class="mb-3">
-                                            <label for="foto" class="form-label mb-5 mt-5">After</label>
-                                            <div class="text-left">
+                                            <label for="foto" class="form-label mb-3 mt-3">After <sup class="text-secondary" font-size="20px">* </sup></label>
+                                            {{-- <div class="text-left">
                                                 @empty($user->photo)
                                                 <img src="" style="height: 10rem;"
                                                     class="img-circle elevation-2 img-circle elevation-2 img-thumbnail shadow-lg" alt="Image ">
@@ -71,10 +105,40 @@
                                                     style="height: 10rem;" class="img-circle elevation-2 img-circle elevation-2 img-thumbnail shadow-lg"
                                                     alt="Image ">
                                                 @endempty
+                                            </div> --}}
+
+                                            <div class="col-sm-7 col-xl-5">
+                                                <div class="card overflow-hidden rounded-2">
+                                                    <div class="position-relative">
+                                                        <a href="javascript:void(0)">
+            
+                                                           
+                                                            {{-- <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt=""> --}}
+                                                           
+                                                            <img src="{{asset('Templeate/src/assets/images/profile/user-1.jpg')}}"
+                                                                class="card-img-top rounded-0" alt="">
+                                                            
+                                                        </a>
+                                                        <a href="javascript:void(0)"
+                                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Add To Cart"><i class="ti ti-basket fs-4"></i>
+                                                        </a>
+                                                    </div>
+            
+            
+                                                    <div class="card-body pt-3 p-4">
+                                                        <h6 class="fw-semibold fs-4">Nama Pegawai</h6>
+                                                        <div class="d-flex align-items-center justify-content-between">
+            
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
 
-                                        </div><br><br>
+                                        </div>
 
                                         {{-- <div class="row form-label mb-5 mt-6">
                                             <div class="col-md-6">
@@ -113,17 +177,17 @@
                                         
                   
                                         <div class="mb-3">
-                                          <label for="desc" class="form-label">Deskripsi</label>
+                                          <label for="desc" class="form-label">Deskripsi <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="desc" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="lokasi" class="form-label">Lokasi</label>
+                                          <label for="lokasi" class="form-label">Lokasi <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="lokasi" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="catatan" class="form-label">Catatan</label>
+                                          <label for="catatan" class="form-label">Catatan <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="catatan" class="form-control" id="" cols="6" rows="3"
                                                   required disabled></textarea>
                                         </div>
@@ -158,7 +222,7 @@
 
 
     {{-- Footer.blade.php --}}
-    @include('admin.layout.footer')
+    @include('sadmin.layout.footer')
 
 
 </body>

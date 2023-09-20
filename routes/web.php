@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PenempatanController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\DaerahController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,10 @@ Route::post('/getKecamatan', [DaerahController::class, 'getKecamatan'])
     ->name('getKecamatan');
 Route::post('/getDesa', [DaerahController::class, 'getDesa'])
     ->name('getDesa');
+
+/** URL Select Lokasi */
+Route::post('getLokasi', [DaerahController::class, 'getLokasi'])
+    ->name('getLokasi');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
@@ -84,6 +89,28 @@ Route::get('/edit-penempatan', function () {
     return view('admin.penempatan.edit-penempatan');
 });
 
+
+/** SADMIN */
+Route::get('/sdashboard', function () {
+    return view('sadmin.dashboard');
+});
+
+Route::get('/slaporan', function () {
+    return view('sadmin.laporan.data-laporan');
+});
+
+Route::get('/spenempatan', function () {
+    return view('sadmin.penempatan.data-penempatan');
+});
+
+Route::get('/sdetail-laporan', function () {
+    return view('sadmin.laporan.detail-laporan');
+});
+
+Route::get('/sdetail-penempatan', function () {
+    return view('sadmin.penempatan.detail-penempatan');
+});
+
 /** SUPERADMIN */
 Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {
     /** Dashboard */
@@ -95,11 +122,18 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     /** Dashboard */
     Route::get('/', [HomeController::class, 'dashboardAdmin']);
    
+
     /** Data Users */
     Route::resource('manage-users', UserController::class);
-   
+
+    /** PDF */
+    // Route::get('manage-users', [UserController::class, 'exportPDF'])->name('manage-users.pdf');
+
     /** Data Penempatan */
     Route::resource('penempatan', PenempatanController::class);
+
+    /** Data Laporan */
+    Route::resource('laporan', LaporanController::class);
 });
 
 /** Auth */

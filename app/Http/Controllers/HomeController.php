@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -17,8 +17,10 @@ class HomeController extends Controller
     public function dashboardSuperAdmin(Request $request)
     {
         $sadmin = Auth::user();
+        $users = User::all();
         return view('sadmin.dashboard')->with([
             'sadmin' => $sadmin,
+            'users' => $users
         ]);
     }
 
@@ -30,8 +32,10 @@ class HomeController extends Controller
     public function dashboardAdmin(Request $request)
     {
         $admin = Auth::user();
+        
         return view('admin.dashboard')->with([
             'admin' => $admin,
+            
         ]);
     }
 

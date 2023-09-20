@@ -42,6 +42,24 @@
               <a class="btn btn-success m-1 mb-3" href="">
                 <i class="fa-solid fa-file-excel"></i>&nbsp; Excel
               </a>
+
+              <form method="GET" class="input-group mb-3">
+                
+        
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; Search Data</span>
+                  <input type="text" class="form-control" placeholder="Pencarian Data [Ketik Data + (Enter)]  -  Reset Pencarian [Hapus Data + (Enter)]" aria-label="" aria-describedby="cari" name="cari" id="cari" value="{{ $cari }}">
+                  
+                  
+                </div>
+                
+               
+              </form>
+
+              <div class="alert alert-secondary text-primary" role="alert">
+                Kata Kunci Pencarian : Alamat
+              </div>
+
               <div class="card">
                 <div class="card-body">
                   <form>
@@ -51,8 +69,8 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">Pegawai</th>
-                            <th scope="col">Kabupaten</th>
+                            <th scope="col">@sortablelink('user_id','Nama')</th>
+                            <th scope="col">@sortablelink('kab_id','Kabupaten')</th>
                             <th scope="col">Alamat</th>
                             
                            
@@ -60,13 +78,12 @@
                           </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                          {{-- @php $no = 1 + (($users->currentPage()-1) * $users->perPage()); @endphp
-                          @foreach($users as $user) --}}
-                          @php $no = 1; @endphp
-                          @foreach ($penempatans as $penempatan)
+            
+                          @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
+                          @foreach($penempatans as $penempatan)
                           <tr>
                             <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
-                            <td data-title="Pegawai">{{ $penempatan->user->nama }}</td>
+                            <td data-title="Nama">{{ $penempatan->user->nama }}</td>
                             <td data-title="Kabupaten">{{ $penempatan->kabupaten->nama }}</td>
                             <td data-title="Alamat">{{ $penempatan->alamat }}</td>
                             <th class="d-flex justify-content-center">
@@ -87,6 +104,7 @@
                           @endforeach
                         </tbody>
                       </table>
+                      {!! $penempatans->appends(Request::except('page'))->render() !!}
                     </div>
     
                   </form>

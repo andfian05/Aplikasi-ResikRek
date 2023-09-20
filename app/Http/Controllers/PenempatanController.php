@@ -12,9 +12,9 @@ use App\Models\Kecamatan;
 use App\Models\Desa;
 
 use Illuminate\Support\Facades\Hash;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Storage;
-use File;
+use Illuminate\Support\Facades\File;
 
 class PenempatanController extends Controller
 {
@@ -24,11 +24,35 @@ class PenempatanController extends Controller
     public function index(Request $request)
     {
         $admin = Auth::user();
+        $users = User::all();
         $penempatans = Penempatan::with(['user', 'kabupaten'])->get();
+        
+
+        // $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatan');
+
+        $cari = $request->query('cari');
+        
+        if(!empty($cari)){
+            $penempatans = Penempatan::sortable()
+            ->where('penempatan.user_id','like','%'. $cari .'%')
+            ->orWhere('penempatan.alamat','like','%'. $cari .'%')
+            ->orWhere('penempatan.kab_id','like','%'. $cari .'%')
+            ->paginate(5)->onEachSide(1)->fragment('penempatans');
+
+           
+        } else {
+            $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatans');
+
+            
+        }
+
+        
 
         return view('admin.penempatan.data-penempatan')->with([
             'admin' => $admin,
             'penempatans' => $penempatans,
+            'cari' => $cari,
+            'users' => $users,
         ]);
     }
 
@@ -38,7 +62,7 @@ class PenempatanController extends Controller
     public function create(Request $request)
     {
         $admin = Auth::user();
-        $users = User::all();
+        $users = User::where('role', 'Karyawan')->get();
         $kabupatens = Kabupaten::all();
 
         return view('admin.penempatan.add-penempatan')->with([

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2023 at 07:16 PM
+-- Generation Time: Sep 20, 2023 at 08:46 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -766,6 +766,31 @@ INSERT INTO `kecamatan` (`id_kec`, `kab_id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `before_foto` varchar(65) NOT NULL,
+  `after_foto` varchar(65) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `catatan` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `laporan`
+--
+
+INSERT INTO `laporan` (`id`, `user_id`, `before_foto`, `after_foto`, `deskripsi`, `lokasi`, `catatan`, `created_at`, `updated_at`) VALUES
+(1, 3, '1695226422-cuci tangan.png', '1695226422-HAT.png', 'ke 8', 'Jl. KH. Bisri Syansuri RT 01/RW 05, Desa Plosogeneng, Kecamatan Jombang, Kabupaten Jombang, Jawa Timur, Indonesia', 'please ya', '2023-09-20 09:13:42', '2023-09-20 11:31:02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -827,6 +852,13 @@ CREATE TABLE `penempatan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `penempatan`
+--
+
+INSERT INTO `penempatan` (`id`, `user_id`, `kab_id`, `kec_id`, `desa_id`, `alamat`, `created_at`, `updated_at`) VALUES
+(1, 3, '3517', '351709', '3517092019', 'Jl. KH. Bisri Syansuri RT 01/RW 05, Desa Plosogeneng, Kecamatan Jombang, Kabupaten Jombang, Jawa Timur, Indonesia', '2023-09-20 07:35:47', '2023-09-20 07:35:47');
+
 -- --------------------------------------------------------
 
 --
@@ -855,7 +887,6 @@ CREATE TABLE `personal_access_tokens` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `penempatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -868,9 +899,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `penempatan`, `foto`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Superadmin ResikRek', '', '', 'Supera_rek', '$2y$10$KFCa6kaU17/6S8.t8Q.hS.6zNGjzmRzu9CLLenkUfSQ3ZbqYrwqeS', 'Superadmin', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
-(2, 'Admin ResikRek', '', '', 'Admin_rek', '$2y$10$vXMo6/MpuiQhoXjU0/gog.gbp2Fv6V3WhD2sOE8IZpl1BnML/5Noy', 'Admin', '2023-09-10 08:00:15', '2023-09-10 08:00:15');
+INSERT INTO `users` (`id`, `nama`, `foto`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'Superadmin ResikRek', '', 'Supera_rek', '$2y$10$KFCa6kaU17/6S8.t8Q.hS.6zNGjzmRzu9CLLenkUfSQ3ZbqYrwqeS', 'Superadmin', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
+(2, 'Admin ResikRek', '', 'Admin_rek', '$2y$10$vXMo6/MpuiQhoXjU0/gog.gbp2Fv6V3WhD2sOE8IZpl1BnML/5Noy', 'Admin', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
+(3, 'Andika', '1695132723-Andromeda_Galaxy.jpg', 'fian0577', '$2y$10$gwit05SuTJflqCv2lVwPkuBd.llGqsl7b4U6b.sx2pAVDId2G6Dwu', 'Karyawan', '2023-09-19 07:12:06', '2023-09-19 07:12:06');
 
 --
 -- Indexes for dumped tables
@@ -900,6 +932,12 @@ ALTER TABLE `kabupaten`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kec`);
+
+--
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -951,6 +989,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -960,7 +1004,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `penempatan`
 --
 ALTER TABLE `penempatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -972,7 +1016,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -38,8 +38,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form>
+                                      <div class="alert alert-dark text-white" role="alert">
+                                        (*) Hanya Melihat
+                                      </div>
                                         <div class="mb-3">
-                                            <label for="nama" class="form-label">Pegawai</label>
+                                            <label for="nama" class="form-label">Pegawai <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="user_id" id="user_id" class="form-control" 
                                               disabled>
                                               <option value="{{ $penempatan->user->id }}">
@@ -48,7 +51,7 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="desa" class="form-label">Kabupaten / Kota</label>
+                                            <label for="desa" class="form-label">Kabupaten / Kota <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="kab_id" id="kabupaten"
                                               class="form-control" disabled>
                                               <option value="{{ $penempatan->kabupaten->id_kab }}">
@@ -57,7 +60,7 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="kecamatan" class="form-label">Kecamatan</label>
+                                            <label for="kecamatan" class="form-label">Kecamatan <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="kecn_id" id="kecamatan"
                                               class="form-control" disabled>
                                               <option value="{{ $penempatan->kecamatan->id_kec }}">
@@ -66,7 +69,7 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="desa" class="form-label">Kelurahan / Desa</label>
+                                          <label for="desa" class="form-label">Kelurahan / Desa <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <select name="desa_id" id="desa"
                                             class="form-control" disabled>
                                             <option value="{{ $penempatan->desa->id_desa }}">
@@ -75,7 +78,7 @@
                                           </select>
                                         </div>
                                         <div class="mb-3">
-                                          <label for="alamat" class="form-label">Alamat Lengkap</label>
+                                          <label for="alamat" class="form-label">Alamat Lengkap <sup class="text-secondary" font-size="20px">* </sup></label>
                                           <textarea name="alamat" class="form-control" id="alamat" 
                                             cols="6" rows="3" disabled>
                                             {{ $penempatan->alamat }}
