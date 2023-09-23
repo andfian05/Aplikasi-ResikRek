@@ -36,7 +36,7 @@
               <a class="btn btn-secondary m-1 mb-3" href="{{ route('penempatan.create') }}">
                 <i class="fa-solid fa-plus"></i>&nbsp;Add Penempatan
               </a>
-              <a class="btn btn-danger m-1 mb-3" href="">
+              <a class="btn btn-danger m-1 mb-3" href="/pdf-tabelpenempatan">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
               <a class="btn btn-success m-1 mb-3" href="">
@@ -81,8 +81,6 @@
             
                           @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
                           @foreach($penempatans as $penempatan)
-                          {{-- @php $no = 1; @endphp
-                          @foreach ($penempatans as $penempatan) --}}
                           <tr>
                             <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
                             <td data-title="Nama">{{ $penempatan->user->nama }}</td>

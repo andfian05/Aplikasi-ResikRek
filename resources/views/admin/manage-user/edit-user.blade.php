@@ -52,11 +52,6 @@
                         <input type="text" name="nama" class="form-control" id="nama" 
                           value="{{ old('nama') ? old('nama') : $user->nama }}">
                       </div>
-                      {{-- <div class="mb-3">
-                        <label for="penempatan" class="form-label">Penempatan</label>
-                        <input type="text" name="penempatan" class="form-control" id="penempatan"  
-                          value="{{ old('penempatan') ? old('penempatan') : $user->penempatan }}">
-                      </div> --}}
                       
                       <div class="mb-3">
                         <label for="username" class="form-label">Username <sup class="text-primary" font-size="20px">* </sup></label>

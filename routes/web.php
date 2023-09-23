@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenempatanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DaerahController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,16 @@ npm run dev watch
 Route::get('/', function () {
     return view('welcome');
 });
+
+/** URL Select Wilayah */
+Route::post('/getKecamatan', [DaerahController::class, 'getKecamatan'])
+    ->name('getKecamatan');
+Route::post('/getDesa', [DaerahController::class, 'getDesa'])
+    ->name('getDesa');
+
+/** URL Select Lokasi */
+Route::post('getLokasi', [DaerahController::class, 'getLokasi'])
+    ->name('getLokasi');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
@@ -100,12 +111,32 @@ Route::get('/sdetail-penempatan', function () {
     return view('sadmin.penempatan.detail-penempatan');
 });
 
+/** PDF User */
+Route::get('/pdf-personaluser', function () {
+    return view('admin.manage-user.pdf-personaluser');
+});
 
-/** URL Select Wilayah */
-Route::post('/getKecamatan', [DaerahController::class, 'getKecamatan'])
-    ->name('getKecamatan');
-Route::post('/getDesa', [DaerahController::class, 'getDesa'])
-    ->name('getDesa');
+Route::get('/pdf-tabeluser', function () {
+    return view('admin.manage-user.pdf-tabeluser');
+});
+
+/** PDF Laporan */
+Route::get('/pdf-personallaporan', function () {
+    return view('admin.laporan.pdf-personallaporan');
+});
+
+Route::get('/pdf-tabellaporan', function () {
+    return view('admin.laporan.pdf-tabellaporan');
+});
+
+/** PDF Penempatan */
+Route::get('/pdf-personalpenempatan', function () {
+    return view('admin.penempatan.pdf-personalpenempatan');
+});
+
+Route::get('/pdf-tabelpenempatan', function () {
+    return view('admin.penempatan.pdf-tabelpenempatan');
+});
 
 
 /** SUPERADMIN */
@@ -126,10 +157,11 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     /** PDF */
     // Route::get('manage-users', [UserController::class, 'exportPDF'])->name('manage-users.pdf');
 
+    /** Data Penempatan */
+    Route::resource('penempatan', PenempatanController::class);
 
-    /** penempatan */
-     /** Data Penempatan */
-     Route::resource('penempatan', PenempatanController::class);
+    /** Data Laporan */
+    Route::resource('laporan', LaporanController::class);
 });
 
 /** Auth */

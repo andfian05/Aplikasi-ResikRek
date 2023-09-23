@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="/laporan" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('laporan.index') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-file-description"></i>
               </span>

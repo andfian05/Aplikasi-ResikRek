@@ -32,7 +32,7 @@
                             <a class="btn btn-success m-1 mb-3" href="{{ route('manage-users.index') }}">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
-                            <a class="btn btn-danger m-1 mb-3" href="">
+                            <a class="btn btn-danger m-1 mb-3" href="/pdf-personaluser">
                                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
                             </a>
 

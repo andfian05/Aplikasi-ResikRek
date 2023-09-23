@@ -72,7 +72,6 @@ class UserController extends Controller
 
         User::create([
             'nama' => $data['nama'],
-          
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
@@ -138,8 +137,7 @@ class UserController extends Controller
         
         User::where('id', $user->id)
             ->update([
-            'nama' => $data['nama'],
-           
+            'nama' => $data['nama'], 
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => $password,

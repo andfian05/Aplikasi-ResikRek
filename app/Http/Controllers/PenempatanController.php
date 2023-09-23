@@ -62,7 +62,7 @@ class PenempatanController extends Controller
     public function create(Request $request)
     {
         $admin = Auth::user();
-        $users = User::all();
+        $users = User::where('role', 'Karyawan')->get();
         $kabupatens = Kabupaten::all();
 
         return view('admin.penempatan.add-penempatan')->with([
