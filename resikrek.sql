@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2023 at 08:46 PM
+-- Generation Time: Sep 25, 2023 at 05:45 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -781,13 +781,6 @@ CREATE TABLE `laporan` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `laporan`
---
-
-INSERT INTO `laporan` (`id`, `user_id`, `before_foto`, `after_foto`, `deskripsi`, `lokasi`, `catatan`, `created_at`, `updated_at`) VALUES
-(1, 3, '1695226422-cuci tangan.png', '1695226422-HAT.png', 'ke 8', 'Jl. KH. Bisri Syansuri RT 01/RW 05, Desa Plosogeneng, Kecamatan Jombang, Kabupaten Jombang, Jawa Timur, Indonesia', 'please ya', '2023-09-20 09:13:42', '2023-09-20 11:31:02');
-
 -- --------------------------------------------------------
 
 --
@@ -843,11 +836,10 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `penempatan` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `kab_id` char(4) NOT NULL,
   `kec_id` char(6) NOT NULL,
   `desa_id` char(10) NOT NULL,
-  `alamat` longtext NOT NULL,
+  `alamat` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -856,8 +848,9 @@ CREATE TABLE `penempatan` (
 -- Dumping data for table `penempatan`
 --
 
-INSERT INTO `penempatan` (`id`, `user_id`, `kab_id`, `kec_id`, `desa_id`, `alamat`, `created_at`, `updated_at`) VALUES
-(1, 3, '3517', '351709', '3517092019', 'Jl. KH. Bisri Syansuri RT 01/RW 05, Desa Plosogeneng, Kecamatan Jombang, Kabupaten Jombang, Jawa Timur, Indonesia', '2023-09-20 07:35:47', '2023-09-20 07:35:47');
+INSERT INTO `penempatan` (`id`, `kab_id`, `kec_id`, `desa_id`, `alamat`, `created_at`, `updated_at`) VALUES
+(1, '3517', '351709', '3517092019', 'coba duluuuuuuuuuuuuuuuuuuuuuu 3', '2023-09-24 09:15:25', '2023-09-25 08:36:36'),
+(2, '3516', '351608', '3516081007', 'cobaaaa2', '2023-09-25 08:12:33', '2023-09-25 08:12:33');
 
 -- --------------------------------------------------------
 
@@ -891,6 +884,7 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `penempatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -899,10 +893,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `foto`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Superadmin ResikRek', '', 'Supera_rek', '$2y$10$KFCa6kaU17/6S8.t8Q.hS.6zNGjzmRzu9CLLenkUfSQ3ZbqYrwqeS', 'Superadmin', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
-(2, 'Admin ResikRek', '', 'Admin_rek', '$2y$10$vXMo6/MpuiQhoXjU0/gog.gbp2Fv6V3WhD2sOE8IZpl1BnML/5Noy', 'Admin', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
-(3, 'Andika', '1695132723-Andromeda_Galaxy.jpg', 'fian0577', '$2y$10$gwit05SuTJflqCv2lVwPkuBd.llGqsl7b4U6b.sx2pAVDId2G6Dwu', 'Karyawan', '2023-09-19 07:12:06', '2023-09-19 07:12:06');
+INSERT INTO `users` (`id`, `nama`, `foto`, `username`, `password`, `role`, `penempatan`, `created_at`, `updated_at`) VALUES
+(1, 'Superadmin ResikRek', '', 'Supera_rek', '$2y$10$KFCa6kaU17/6S8.t8Q.hS.6zNGjzmRzu9CLLenkUfSQ3ZbqYrwqeS', 'Superadmin', '', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
+(2, 'Admin ResikRek', '', 'Admin_rek', '$2y$10$vXMo6/MpuiQhoXjU0/gog.gbp2Fv6V3WhD2sOE8IZpl1BnML/5Noy', 'Admin', '', '2023-09-10 08:00:15', '2023-09-10 08:00:15'),
+(4, 'Andika', '1695655327-Andromeda_Galaxy.jpg', 'fian05zzz', '$2y$10$r0V8uuisdLaJnifKRKUrduOo1pXu6p9gmkbJ/sAuRFR95x7.YXkQ.', 'Karyawan', 'coba duluuuuuuuuuuuuuuuuuuuuuu 3', '2023-09-25 08:22:13', '2023-09-25 08:36:31');
 
 --
 -- Indexes for dumped tables
@@ -992,7 +986,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1004,7 +998,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `penempatan`
 --
 ALTER TABLE `penempatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1016,7 +1010,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

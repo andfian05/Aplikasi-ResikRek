@@ -68,9 +68,19 @@
                         </select>
                       </div>
                       <div class="mb-3">
+                        <label for="penempatan" class="form-label">Penempatan <sup class="text-danger" font-size="20px">* </sup></label>
+                        <select name="penempatan" id="penempatan" class="form-control" required>
+                          <option value="">--- Penempatan ---</option>
+                          @foreach ($penempatans as $penempatan)
+                            <option value="{{ $penempatan->alamat }}">
+                              {{ $penempatan->alamat }}
+                            </option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="mb-3">
                         <label for="foto" class="form-label">Foto <sup class="text-danger" font-size="20px">* </sup></label>
                         <input type="file" name="foto" class="form-control" id="foto" required>
-                        
                       </div>
                       <br>
                       <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-2">Tambah User</button>

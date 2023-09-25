@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
 use App\Models\User;
+use App\Models\Penempatan;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -51,9 +52,11 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $admin = Auth::user();
+        $penempatans = Penempatan::all();
 
         return view('admin.manage-user.add-user')->with([
             'admin' => $admin,
+            'penempatans' => $penempatans,
         ]);
     }
 
@@ -76,6 +79,7 @@ class UserController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'role' => $data['role'],
+            'penempatan' => $data['penempatan'],
         ]);
 
         return redirect()->route('manage-users.index')->with('success', 'Data Management User Berhasil Ditambahkan!');
@@ -116,6 +120,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $user = User::findOrFail($id);
+        $penempatan = Penempatan::where('alamat', $user->penempatan)->first();
 
         if ($request->foto == "") {
             $fotoName = $user->foto;
@@ -138,12 +143,17 @@ class UserController extends Controller
         User::where('id', $user->id)
             ->update([
             'nama' => $data['nama'],
-           
             'foto' => $fotoName,
             'username' => $data['username'],
             'password' => $password,
             'role' => $data['role'],
+            'penempatan' => $data['penempatan'],
         ]);
+
+        Penempatan::where('id', $penempatan->id)
+            ->update([
+                'alamat' => $data['penempatan'],
+            ]);
 
         return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Diubah!');
     }
@@ -156,6 +166,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         if(!empty($user->foto)) File::delete('storage/img/'.$user->foto);
         $user->delete();
+        $penempatan = Penempatan::where('alamat', $user->penempatan)->first();
+        $penempatan->delete();
 
         return redirect()->route('manage-users.index')->with('success', 'Data User Berhasil Dihapus!');
     }

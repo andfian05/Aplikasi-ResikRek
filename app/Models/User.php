@@ -29,6 +29,7 @@ class User extends Authenticatable
         'username',
         'password',
         'role',
+        'penempatan',
     ];
 
     /**
@@ -57,5 +58,11 @@ class User extends Authenticatable
         'username',
         'password',
         'role',
+        'penempatan',
     ];
+
+    public function penempatan()
+    {
+        return $this->hasOne(Penempatan::class, 'penempatan', 'alamat');
+    }
 }

@@ -45,15 +45,6 @@
                         (*) Wajib Mengisi
                       </div>
                       <div class="mb-3">
-                        <label for="user_id" class="form-label">Pegawai <sup class="text-danger" font-size="20px">*</sup></label>
-                        <select name="user_id" id="user_id" class="form-control" required>
-                          <option value="">--- Pegawai ---</option>
-                          @foreach ($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->nama }}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                      <div class="mb-3">
                         <label for="kabupaten" class="form-label">Kabupaten/Kota <sup class="text-danger" font-size="20px">*</sup></label>
                         <select name="kab_id" id="kabupaten" class="form-control" required>
                           <option value="">--- Kabupaten/Kota ---</option>

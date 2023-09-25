@@ -46,19 +46,6 @@
                                           (*) Hanya Opsional 
                                         </div>
                                         <div class="mb-3">
-                                          <label for="user_id" class="form-label">Pegawai <sup class="text-primary" font-size="20px">* </sup></label>
-                                          <select name="user_id" id="user_id" 
-                                             class="form-control">
-                                            @foreach ($users as $user)
-                                              @if ($penempatan->user_id == $user->id)
-                                                <option value="{{ $user->id }}" selected>{{ $user->nama }}</option>
-                                              @else
-                                                <option value="{{ $user->id }}">{{ $user->nama }}</option>
-                                              @endif
-                                            @endforeach
-                                          </select>
-                                        </div>
-                                        <div class="mb-3">
                                           <label for="kabupaten" 
                                             class="form-label">Kabupaten / Kota <sup class="text-primary" font-size="20px">* </sup></label>
                                           <select name="kab_id" id="kabupaten" 
