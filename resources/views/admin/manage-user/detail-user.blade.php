@@ -32,7 +32,7 @@
                             <a class="btn btn-success m-1 mb-3" href="{{ route('manage-users.index') }}">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
-                            <a class="btn btn-danger m-1 mb-3" href="/pdf-personaluser">
+                            <a class="btn btn-danger m-1 mb-3" href="">
                                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
                             </a>
 
@@ -51,27 +51,28 @@
                                                 value="{{ $user->nama }}" id="nama" disabled>
 
                                         </div>
-                                        {{-- <div class="mb-3">
-                                            <label for="penempatan" class="form-label">Penempatan</label>
-                                           
-                                            <textarea name="penempatan" class="form-control" id="penempatan" cols="6" rows="3" required disabled value="{{ $user->penempatan }}">{{ $user->penempatan }}</textarea>
-                                        </div> --}}
 
                                         <div class="mb-3">
                                             <label for="role" class="form-label">Pemangku Kepentingan <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="role" id="role" type="text" class="form-control"
                                                 aria-describedby="" disabled>
-                                                <option value="{{ $user->role }}">--- {{ $user->role }} ---</option>
+                                                <option value="{{ $user->role }}"> {{ $user->role }} </option>
                                             </select>
+                                        </div>
 
-
+                                        <div class="mb-3">
+                                            <label for="penempatan" class="form-label">Penempatan <sup class="text-secondary" font-size="20px">* </sup></label>
+                                            <select name="penempatan" id="penempatan" type="text" 
+                                                class="form-control"
+                                                aria-describedby="" disabled>
+                                                <option value="{{ $user->penempatan }}"> {{ $user->penempatan }} </option>
+                                            </select>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <input type="text" name="username" class="form-control"
                                                 value="{{ $user->username }}" id="username" disabled>
-
                                         </div>
 
                                         <div class="mb-2">

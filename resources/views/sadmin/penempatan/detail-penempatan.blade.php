@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title fw-semibold mb-5 text-center">Detail Penempatan</h5>
-                            <a class="btn btn-success m-1 mb-3" href="/spenempatan">
+                            <a class="btn btn-success m-1 mb-3" href="">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
                             <a class="btn btn-danger m-1 mb-3" href="">

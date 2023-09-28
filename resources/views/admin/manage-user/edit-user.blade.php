@@ -82,6 +82,11 @@
                         </select>
                       </div>
                       <div class="mb-3">
+                        <label for="penempatan" class="form-label">Penempatan <sup class="text-primary" font-size="20px">* </sup></label>
+                        <input type="text" name="penempatan" class="form-control" id="penempatan" 
+                          value="{{ old('penempatan') ? old('penempatan') : $user->penempatan }}">
+                      </div>
+                      <div class="mb-3">
                         <label for="foto" class="form-label">Foto <sup class="text-primary" font-size="20px">* </sup></label>
                         <input type="file" name="foto" class="form-control" id="foto">
                         @empty($user->foto)

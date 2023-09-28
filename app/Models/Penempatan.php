@@ -13,13 +13,8 @@ class Penempatan extends Model
 
     protected $table = 'penempatan';
     protected $fillable = [
-        'user_id', 'kab_id', 'kec_id', 'desa_id', 'alamat'
+        'kab_id', 'kec_id', 'desa_id', 'alamat'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
 
     public function kabupaten() 
     {
@@ -37,6 +32,6 @@ class Penempatan extends Model
     }
 
     public $sortable = [
-        'user_id', 'kab_id', 'kec_id', 'desa_id', 'alamat',
+        'kab_id', 'kec_id', 'desa_id', 'alamat',
     ];
 }

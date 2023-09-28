@@ -32,7 +32,7 @@
                             <a class="btn btn-success m-1 mb-3" href="{{ route('penempatan.index') }}">
                                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
                             </a>
-                            <a class="btn btn-danger m-1 mb-3" href="/pdf-personalpenempatan">
+                            <a class="btn btn-danger m-1 mb-3" href="">
                               <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
                             </a>
                             <div class="card">
@@ -41,15 +41,6 @@
                                       <div class="alert alert-dark text-white" role="alert">
                                         (*) Hanya Melihat
                                       </div>
-                                        <div class="mb-3">
-                                            <label for="nama" class="form-label">Pegawai <sup class="text-secondary" font-size="20px">* </sup></label>
-                                            <select name="user_id" id="user_id" class="form-control" 
-                                              disabled>
-                                              <option value="{{ $penempatan->user->id }}">
-                                                {{ $penempatan->user->nama }}
-                                              </option>
-                                            </select>
-                                        </div>
                                         <div class="mb-3">
                                             <label for="desa" class="form-label">Kabupaten / Kota <sup class="text-secondary" font-size="20px">* </sup></label>
                                             <select name="kab_id" id="kabupaten"

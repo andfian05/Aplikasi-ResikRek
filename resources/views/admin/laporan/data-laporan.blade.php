@@ -36,7 +36,7 @@
               <a class="btn btn-secondary m-1 mb-3" href="{{ route('laporan.create') }}">
                 <i class="fa-solid fa-plus"></i>&nbsp;Add Laporan
               </a>
-              <a class="btn btn-danger m-1 mb-3" href="/pdf-tabellaporan">
+              <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
               <a class="btn btn-success m-1 mb-3" href="">

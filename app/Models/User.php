@@ -25,11 +25,11 @@ class User extends Authenticatable
 
     protected $fillable = [
         'nama',
-       
         'foto',
         'username',
         'password',
         'role',
+        'penempatan',
     ];
 
     /**
@@ -54,10 +54,15 @@ class User extends Authenticatable
 
     public $sortable = [
         'nama',
-       
         'foto',
         'username',
         'password',
         'role',
+        'penempatan',
     ];
+
+    public function penempatan()
+    {
+        return $this->hasOne(Penempatan::class, 'penempatan', 'alamat');
+    }
 }

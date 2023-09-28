@@ -49,10 +49,12 @@ class LaporanController extends Controller
     {
         $admin = Auth::user();
         $users = User::where('role', 'karyawan')->get();
+        $penempatans = Penempatan::all();
 
         return view('admin.laporan.add-laporan')->with([
             'admin' => $admin,
             'users' => $users,
+            'penempatans' => $penempatans,
         ]);
     }
 
@@ -79,8 +81,9 @@ class LaporanController extends Controller
             'before_foto' => $beforefotoName,
             'after_foto' => $afterfotoName,
             'deskripsi' => $data['deskripsi'],
-            'lokasi' => $data['lokasi'],
+            // 'lokasi' => $data['lokasi'],
             'catatan' => $data['catatan'],
+            // 'penempatan' => $data['penempatan'],
         ]);
 
         return redirect()->route('laporan.index')->with('success', 'Data Laporan Berhasil Ditambahkan!');

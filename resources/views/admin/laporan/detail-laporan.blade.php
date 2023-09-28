@@ -28,7 +28,7 @@
               <a class="btn btn-success m-1 mb-3" href="{{ route('laporan.index') }}">
                 <i class="fa-solid fa-circle-chevron-left"></i>&nbsp;Back
               </a>
-              <a class="btn btn-danger m-1 mb-3" href="/pdf-personallaporan">
+              <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
 
@@ -49,9 +49,7 @@
                     <div class="row form-label mb-5 mt-6">
                       <div class="col-md-6">
                         <div class="form mb-5 mt-6 mb-md-0">
-                          <label for="before" class="form-label text-justify">Before <sup class="text-secondary" 
-                            font-size="20px">*
-                            </sup></label>
+                          <label for="before" class="form-label text-justify">Before </label>
                           <div class="text-left">
                             <img src="{{ asset('storage/img/before/'. $report->before_foto) }}" 
                               style="height: 10rem;" class="img-circle elevation-2" alt="Image before">
@@ -60,9 +58,7 @@
                       </div>
                       <div class="col-md-6 form-label">
                         <div class="form mb-5 mt-6 mb-md-0">
-                          <label for="after" class="form-label text-justify">After <sup class="text-secondary" 
-                            font-size="20px">*
-                            </sup></label>
+                          <label for="after" class="form-label text-justify">After </label>
                           <div class="text-left">
                             <img src="{{ asset('storage/img/after/'. $report->after_foto) }}" 
                               style="height: 10rem;" class="img-circle elevation-2" alt="Image after">

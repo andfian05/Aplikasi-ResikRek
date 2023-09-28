@@ -11,7 +11,7 @@ use App\Models\Penempatan;
 class DaerahController extends Controller
 {
     /**
-     * get kecamatam
+     * Displaying districts data based on regency id.
      */
     public function getKecamatan(Request $request)
     {
@@ -24,7 +24,7 @@ class DaerahController extends Controller
     }
 
     /**
-     * get Desa
+     * Displaying villages data based on district id.
      */
     public function getDesa(Request $request)
     {

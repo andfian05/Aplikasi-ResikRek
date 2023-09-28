@@ -24,18 +24,13 @@ class PenempatanController extends Controller
     public function index(Request $request)
     {
         $admin = Auth::user();
-        $users = User::all();
-        $penempatans = Penempatan::with(['user', 'kabupaten'])->get();
-        
-
-        // $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatan');
+        $penempatans = Penempatan::with(['kabupaten'])->get();
 
         $cari = $request->query('cari');
         
         if(!empty($cari)){
             $penempatans = Penempatan::sortable()
-            ->where('penempatan.user_id','like','%'. $cari .'%')
-            ->orWhere('penempatan.alamat','like','%'. $cari .'%')
+            ->where('penempatan.alamat','like','%'. $cari .'%')
             ->orWhere('penempatan.kab_id','like','%'. $cari .'%')
             ->paginate(5)->onEachSide(1)->fragment('penempatans');
 
@@ -52,7 +47,6 @@ class PenempatanController extends Controller
             'admin' => $admin,
             'penempatans' => $penempatans,
             'cari' => $cari,
-            'users' => $users,
         ]);
     }
 
@@ -62,12 +56,10 @@ class PenempatanController extends Controller
     public function create(Request $request)
     {
         $admin = Auth::user();
-        $users = User::where('role', 'Karyawan')->get();
         $kabupatens = Kabupaten::all();
 
         return view('admin.penempatan.add-penempatan')->with([
             'admin' => $admin,
-            'users' => $users,
             'kabupatens' => $kabupatens,
         ]);
     }
@@ -80,7 +72,6 @@ class PenempatanController extends Controller
         $data = $request->all();
 
         Penempatan::create([
-            'user_id' => $data['user_id'],
             'kab_id' => $data['kab_id'],
             'kec_id' => $data['kec_id'],
             'desa_id' => $data['desa_id'],
@@ -96,7 +87,7 @@ class PenempatanController extends Controller
     public function show(Request $request, string $id)
     {
         $admin = Auth::user();
-        $penempatan = Penempatan::with(['user', 'kabupaten', 'kecamatan', 'desa'])
+        $penempatan = Penempatan::with(['kabupaten', 'kecamatan', 'desa'])
             ->findOrFail($id);
 
         return view('admin.penempatan.detail-penempatan')->with([
@@ -111,16 +102,14 @@ class PenempatanController extends Controller
     public function edit(Request $request, string $id)
     {
         $admin = Auth::user();
-        $penempatan = Penempatan::with(['user', 'kabupaten', 'kecamatan', 'desa'])
+        $penempatan = Penempatan::with(['kabupaten', 'kecamatan', 'desa'])
             ->findOrFail($id);
-        $users = User::all();
         $kabupatens = Kabupaten::all();
         $kecamatans = Kecamatan::all();
         $desas = Desa::all();
 
         return view('admin.penempatan.edit-penempatan')->with([
             'admin' => $admin,
-            'users' => $users,
             'penempatan' => $penempatan,
             'kabupatens' => $kabupatens,
             'kecamatans' => $kecamatans,
@@ -138,7 +127,6 @@ class PenempatanController extends Controller
 
         Penempatan::where('id', $penempatan->id)
             ->update([
-                'user_id' => $data['user_id'],
                 'kab_id' => $data['kab_id'],
                 'kec_id' => $data['kec_id'],
                 'desa_id' => $data['desa_id'],

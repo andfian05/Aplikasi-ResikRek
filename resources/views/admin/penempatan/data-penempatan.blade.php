@@ -36,7 +36,7 @@
               <a class="btn btn-secondary m-1 mb-3" href="{{ route('penempatan.create') }}">
                 <i class="fa-solid fa-plus"></i>&nbsp;Add Penempatan
               </a>
-              <a class="btn btn-danger m-1 mb-3" href="/pdf-tabelpenempatan">
+              <a class="btn btn-danger m-1 mb-3" href="">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
               <a class="btn btn-success m-1 mb-3" href="">
@@ -69,7 +69,6 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">@sortablelink('user_id','Nama')</th>
                             <th scope="col">@sortablelink('kab_id','Kabupaten')</th>
                             <th scope="col">Alamat</th>
                             
@@ -83,7 +82,6 @@
                           @foreach($penempatans as $penempatan)
                           <tr>
                             <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
-                            <td data-title="Nama">{{ $penempatan->user->nama }}</td>
                             <td data-title="Kabupaten">{{ $penempatan->kabupaten->nama }}</td>
                             <td data-title="Alamat">{{ $penempatan->alamat }}</td>
                             <th class="d-flex justify-content-center">
