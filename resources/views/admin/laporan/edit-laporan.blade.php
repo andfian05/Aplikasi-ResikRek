@@ -60,7 +60,7 @@
                                     <input type="file" name="before_foto" class="form-control"  
                                       id="before">
                                     <img class="mt-2 img-circle elevation-2 img-thumbnail shadow-lg"  
-                                      src="{{ asset('storage/img/before/'. $report->before_foto) }}" 
+                                      src="{{ asset('storage/img/laporan/'. $report->before_foto) }}" 
                                       alt="Image before" width="10%">
                                   </div>
                                   
@@ -68,7 +68,7 @@
                                     <label for="after" class="form-label">After <sup class="text-primary" font-size="20px">* </sup></label>
                                     <input type="file" name="after_foto" class="form-control" id="after">
                                     <img class="mt-2 img-circle elevation-2 img-thumbnail shadow-lg"  
-                                      src="{{ asset('storage/img/after/'. $report->after_foto) }}" 
+                                      src="{{ asset('storage/img/laporan/'. $report->after_foto) }}" 
                                       alt="Image after" width="10%">
                                   </div>
                                   

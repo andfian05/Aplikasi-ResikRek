@@ -51,7 +51,7 @@
                         <div class="form mb-5 mt-6 mb-md-0">
                           <label for="before" class="form-label text-justify">Before </label>
                           <div class="text-left">
-                            <img src="{{ asset('storage/img/before/'. $report->before_foto) }}" 
+                            <img src="{{ asset('storage/img/laporan/'. $report->before_foto) }}" 
                               style="height: 10rem;" class="img-circle elevation-2" alt="Image before">
                           </div>
                         </div>
@@ -60,7 +60,7 @@
                         <div class="form mb-5 mt-6 mb-md-0">
                           <label for="after" class="form-label text-justify">After </label>
                           <div class="text-left">
-                            <img src="{{ asset('storage/img/after/'. $report->after_foto) }}" 
+                            <img src="{{ asset('storage/img/laporan/'. $report->after_foto) }}" 
                               style="height: 10rem;" class="img-circle elevation-2" alt="Image after">
                           </div>
                         </div>

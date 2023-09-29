@@ -64,13 +64,13 @@ class LaporanController extends Controller
         $data = $request->all();
 
         $beforefoto = $request->file('before_foto');
-        $beforefotoName = time().'-'.$beforefoto->getClientOriginalName();
-        $path = 'img/before/'.$beforefotoName;
+        $beforefotoName = time().'-before.'. $request->before_foto->extension();
+        $path = 'img/laporan/'.$beforefotoName;
         Storage::disk('public')->put($path, file_get_contents($beforefoto));
         
         $afterfoto = $request->file('after_foto');
-        $afterfotoName = time().'-'.$afterfoto->getClientOriginalName();
-        $path = 'img/after/'.$afterfotoName;
+        $afterfotoName = time().'-after.'. $request->after_foto->extension();
+        $path = 'img/laporan/'.$afterfotoName;
         Storage::disk('public')->put($path, file_get_contents($afterfoto));
 
         // dd($data);
@@ -129,20 +129,20 @@ class LaporanController extends Controller
             $beforefotoName = $report->before_foto;
         } else {
             $beforefoto = $request->file('before_foto');
-            $beforefotoName = time().'-'.$beforefoto->getClientOriginalName();
-            $path = 'img/before/'.$beforefotoName;
+            $beforefotoName = time().'-before.'. $request->before_foto->extension();
+            $path = 'img/laporan/'.$beforefotoName;
             Storage::disk('public')->put($path, file_get_contents($beforefoto));
-            if(!empty($report->before_foto)) File::delete('storage/img/before/'.$report->before_foto);
+            if(!empty($report->before_foto)) File::delete('storage/img/laporan/'.$report->before_foto);
         }
 
         if ($request->after_foto == "") {
             $afterfotoName = $report->after_foto;
         } else {
             $afterfoto = $request->file('after_foto');
-            $afterfotoName = time().'-'.$afterfoto->getClientOriginalName();
-            $path = 'img/after/'.$afterfotoName;
+            $afterfotoName = time().'-after.'. $request->after_foto->extension();
+            $path = 'img/laporan/'.$afterfotoName;
             Storage::disk('public')->put($path, file_get_contents($afterfoto));
-            if(!empty($report->after_foto)) File::delete('storage/img/after/'.$report->after_foto);
+            if(!empty($report->after_foto)) File::delete('storage/img/laporan/'.$report->after_foto);
         }
 
         if ($request->lokasi == "") {
@@ -171,8 +171,11 @@ class LaporanController extends Controller
     public function destroy(string $id)
     {
         $report = Laporan::findOrFail($id);
-        if(!empty($report->before_foto && $report->after_foto)) File::delete('storage/img/before/'.$report->before_foto, 'storage/img/after/'.$report->after_foto);
+        dd(Storage::delete(['storage/img/laporan'.$report->before_foto, 'storage/img/laporan'.$report->after_foto]));
         $report->delete();
+
+        // File::delete('storage/img/laporan/'.$report->after_foto);
+        // if(!empty($report->before_foto)) File::delete(['storage/img/laporan/'.$report->before_foto, 'storage/img/laporan/'.$report->after_foto]);
 
         return redirect()->route('laporan.index')->with('success', 'Data Laporan Berhasil Dihapus!');
     }
