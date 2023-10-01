@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Data User ResikRek</title>
+  <title>Manage User ResikRek</title>
   <style>
-    .slice {
-      border: 1px solid rgb(155, 154, 154);
+    h5 {
+      margin-top: 0;
+      margin-bottom: .5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: inherit;
     }
 
-    .text-center {
-      text-align: center !important;
+    h5 {
+      font-size: 1.25rem;
     }
 
-    .text-primary {
-      color: rgba(13, 110, 253, 1) !important
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
     }
 
-    img {
-      vertical-align: middle
+    .rounded {
+      border-radius: 0.375rem !important
     }
 
     .mb-4 {
@@ -40,50 +46,56 @@
       display: block !important;
     }
 
-    h5 {
-      margin-top: 0;
-      margin-bottom: .5rem;
-      font-size: 1.25rem;
-      font-weight: 500;
-      line-height: 1.2;
-      color: inherit;
+    .text-center {
+      text-align: center !important
     }
 
-    p {
-      margin-top: 0;
-      margin-bottom: 1rem;
+    .text-primary {
+      color: rgba(13, 110, 253, 1) !important
     }
 
-    .rounded {
-      border-radius: 0.375rem !important
+    img {
+      vertical-align: middle
+    }
+
+    .slice {
+      border: 1px solid rgb(155, 154, 154);
     }
   </style>
 </head>
+
 <body>
-  {{-- <img src="{{ asset('icon/resik-logo.png') }}" class="rounded mx-auto d-block mt-5" 
-    width="90px" alt="logo"> --}}
+  <img src="{{ asset('icon/resik-logo.png') }}" class="rounded mx-auto d-block mt-5" 
+    width="180px" alt="logo">
   <p class="text-center">Your Health, Our Priority</p>
+
   <hr style="height: 2px; border-width: 0; color:black; background-color:black">
   <h5 class="text-center mb-4 mt-4 text-primary">Data Manage-User Bisnis Usaha ResikRek</h5>
+
   <table border="1" class="slice" align="center" cellpadding="3" cellspacing="0" width="80%">
     <thead>
       <tr class="slice">
-        <th class="text-center">No.</th>
-        <th class="text-center">Nama Lengkap</th>
-        <th class="text-center">Username</th>
-        <th class="text-center">Role</th>
+        <th>No</th>
+        <th>Nama Lengkap</th>
+        <th>Username</th>
+        <th>Role</th>
       </tr>
     </thead>
     <tbody>
-    @foreach ($users as $index => $user)
-      <tr class="text-center" style="font-size: .9rem;">
-        <td>{{ $index+1 }}</td>
+      @foreach ($users as $index => $user)
+      <tr class="slice">
+        <td class="text-center">{{ $index+1 }}</td>
         <td>{{ $user->nama }}</td>
         <td>{{ $user->username }}</td>
         <td>{{ $user->role }}</td>
       </tr>
-    @endforeach
+      @endforeach
     </tbody>
   </table>
+
+  <script>
+    // window.print();
+  </script>
 </body>
+
 </html>

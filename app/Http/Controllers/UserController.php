@@ -11,6 +11,9 @@ use App\Models\Penempatan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Storage;
+use App\Exports\ExportUsers;
+use App\Imports\ImportUsers;
+use Excel;
 use PDF;
 use Illuminate\Support\Facades\File;
 
@@ -177,10 +180,25 @@ class UserController extends Controller
      */
     public function exportPDF()
     {
-       
-        // $data ['user'] = User::all();
+        $users = User::all();
+        $data = [
+            'users' => $users
+        ]; 
 
-        // $pdf = PDF::loadView('admin.manage-user.pdf-user', $data);
-        // return $pdf->download('Manage-User.pdf');
+        $pdf = PDF::loadView('admin.manage-user.pdf-user', $data)->setPaper('a4', 'landscape')->setOption(['dpi' => 300]);
+        return $pdf->download('Data-Users-ResikRek.pdf');
+        // return $pdf->stream('Data-Users-ResikRek.pdf');
+        // return view('admin.manage-user.pdf-users')->with([
+        //     'users' => $users,
+        // ]);
     }
+
+    /**
+     * Export list user to Excel of the resource Users.
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new ExportUsers, 'Data-Users-ResikRek.xlsx');
+    }
+
 }

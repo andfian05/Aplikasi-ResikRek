@@ -125,6 +125,10 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
 
     /** Data Users */
     Route::resource('manage-users', UserController::class);
+    Route::get('manage-users-exportpdf', [UserController::class, 'exportPDF'])
+        ->name('manage-users.pdf');
+    Route::get('manage-users-exportexcel', [UserController::class, 'exportExcel'])
+        ->name('manage-users.excel');
 
     /** PDF */
     // Route::get('manage-users', [UserController::class, 'exportPDF'])->name('manage-users.pdf');
