@@ -18,11 +18,10 @@ class UserSeeder extends Seeder
             'id' => 1,
             'nama' => 'Superadmin ResikRek',
             
-            'foto' => 'resik-logo.png',
+            'foto' => '',
             'username' => 'Supera_rek',
             'password' => Hash::make('Superad52@admin'),
             'role' => 'Superadmin',
-            'penempatan' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -31,11 +30,10 @@ class UserSeeder extends Seeder
             'id' => 2,
             'nama' => 'Admin ResikRek',
             
-            'foto' => 'resik-logo.png',
+            'foto' => '',
             'username' => 'Admin_rek',
             'password' => Hash::make('Adminn13@admin'),
             'role' => 'Admin',
-            'penempatan' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

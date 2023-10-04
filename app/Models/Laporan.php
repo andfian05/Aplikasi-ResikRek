@@ -13,7 +13,7 @@ class Laporan extends Model
 
     protected $table = 'laporan';
     protected $fillable = [
-        'user_id', 'before_foto', 'after_foto', 'deskripsi', 'lokasi', 'catatan'
+        'user_id', 'sebelum', 'sesudah', 'deskripsi', 'lokasi', 'catatan'
     ];
 
     public function user()
@@ -21,15 +21,10 @@ class Laporan extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function penempatan()
-    {
-        return $this->hasOne(Penempatan::class, 'penempatan', 'alamat');
-    }
-
     public $sortable = [
         'user_id',
-        'before_foto',
-        'after_foto',
+        'sebelum',
+        'sesudahs',
         'deskripdi',
         'lokasi',
         'catatan',

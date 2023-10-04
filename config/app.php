@@ -159,6 +159,10 @@ return [
         /*
          * Package Service Providers...
          */
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        // Barryvdh\Snappy\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -168,10 +172,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
-
-        
     ])->toArray(),
 
     /*
@@ -187,6 +187,10 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        // 'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        // 'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];

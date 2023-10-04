@@ -111,38 +111,20 @@ Route::get('/sdetail-penempatan', function () {
     return view('sadmin.penempatan.detail-penempatan');
 });
 
-/** PDF User */
-Route::get('/pdf-personaluser', function () {
-    return view('admin.manage-user.pdf-personaluser');
-});
 
-Route::get('/pdf-tabeluser', function () {
-    return view('admin.manage-user.pdf-tabeluser');
-});
 
-/** PDF Laporan */
-Route::get('/pdf-personallaporan', function () {
-    return view('admin.laporan.pdf-personallaporan');
-});
-
-Route::get('/pdf-tabellaporan', function () {
-    return view('admin.laporan.pdf-tabellaporan');
-});
-
-/** PDF Penempatan */
-Route::get('/pdf-personalpenempatan', function () {
-    return view('admin.penempatan.pdf-personalpenempatan');
-});
-
-Route::get('/pdf-tabelpenempatan', function () {
-    return view('admin.penempatan.pdf-tabelpenempatan');
-});
 
 
 /** SUPERADMIN */
 Route::middleware('auth:superadmin')->prefix('sadmin')->group(function () {
     /** Dashboard */
     Route::get('/', [HomeController::class, 'dashboardSuperAdmin']);
+
+    /** Data Penempatan */
+    Route::get('penempatan', [PenempatanController::class, 'indexs'])
+        ->name('penempatan.indexs');
+    Route::get('penempatan/{penempatan}', [PenempatanController::class, 'shows'])
+        ->name('penempatan.shows');
 });
 
 /** ADMIN */
@@ -153,6 +135,20 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
 
     /** Data Users */
     Route::resource('manage-users', UserController::class);
+    Route::get('manage-users-exportpdf', [UserController::class, 'exportPDF'])
+        ->name('manage-users.pdf');
+
+    // Route::get('manage-users-exportpdfid', [UserController::class, 'exportPDFID'])
+    //     ->name('manage-users.pdfid');
+    Route::get('manage-users-exportexcel', [UserController::class, 'exportExcel'])
+        ->name('manage-users.excel');
+
+
+    /** Penempatan */
+    Route::get('penempatan-exportpdf', [PenempatanController::class, 'exportPDF'])
+        ->name('penempatan.pdf');
+        Route::get('penempatan-exportexcel', [PenempatanController::class, 'exportExcel'])
+        ->name('penempatan.excel');
 
     /** PDF */
     // Route::get('manage-users', [UserController::class, 'exportPDF'])->name('manage-users.pdf');

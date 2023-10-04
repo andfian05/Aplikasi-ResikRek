@@ -86,11 +86,11 @@
                               <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
                               <td data-title="Nama">{{ $report->user->nama }}</td>
                               <td data-title="Before">
-                                <img src="{{ asset('storage/img/before/'. $report->before_foto) }}" 
+                                <img src="{{ asset('storage/img/laporan/'. $report->before_foto) }}" 
                                   width="70px" height="70px" alt="before-user">
                               </td>
                               <td data-title="After">
-                                <img src="{{ asset('storage/img/after/'. $report->after_foto) }}" 
+                                <img src="{{ asset('storage/img/laporan/'. $report->after_foto) }}" 
                                   width="70px" height="70px" alt="after-user">
                               </td>
                               <th class="d-flex justify-content-center">
@@ -103,14 +103,12 @@
                                     <i class="fa-solid fa-pencil"></i> Update
                                 </a>
                                 <form method="POST" action="{{ route('laporan.destroy', $report->id) }}"
-                                    style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Delete?')">
-                                        <i class="fa-solid fa-trash"></i>  Delete
-                                    </button>
-                                </form>
+                                  style="display: inline-block;">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button class="btn btn-danger btn-sm"
+                                      onclick="return confirm('Delete?')"><i class="fa-solid fa-trash"></i>  Delete</button>
+                              </form>
                               </th>
                             </tr>
                           @endforeach

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Kecamatan;
 use App\Models\Desa;
+use App\Models\User;
 use App\Models\Penempatan;
 
 class DaerahController extends Controller
@@ -42,7 +43,8 @@ class DaerahController extends Controller
     public function getLokasi(Request $request)
     {
         $id_user = $request->id_user;
-        $lokasis = Penempatan::where('user_id', $id_user)->get();
+        $user = User::where('id', $id_user)->first();
+        $lokasis = Penempatan::where('alamat', $user->penempatan)->get();
         foreach ($lokasis as $lokasi) {
             echo "<option value='$lokasi->alamat'>$lokasi->alamat</option>";
         }

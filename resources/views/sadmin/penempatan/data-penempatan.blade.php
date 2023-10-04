@@ -68,35 +68,29 @@
                         <thead>
                           <tr>
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">Pegawai</th>
                             <th scope="col">Kabupaten</th>
                             <th scope="col">Alamat</th>
-                            
-                           
                             <th scope="col" class="text-center">Action</th> 
                           </tr>
                         </thead>
                         <tbody class="table-group-divider">
             
-                          {{-- @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
-                          @foreach($penempatans as $penempatan) --}}
-                          {{-- @php $no = 1; @endphp
-                          @foreach ($penempatans as $penempatan) --}}
+                          @php $no = 1 + (($penempatans->currentPage()-1) * $penempatans->perPage()); @endphp
+                          @foreach($penempatans as $penempatan) 
                           <tr>
-                            <td scope="row" data-title="No" class="text-center">1</td>
-                            <td data-title="Pegawai">Tata</td>
-                            <td data-title="Kabupaten">Jombang</td>
-                            <td data-title="Alamat">SDN 12</td>
+                            <td scope="row" data-title="No" class="text-center">{{ $no++ }}</td>
+                            <td data-title="Kabupaten">{{ $penempatan->kabupaten->nama }}</td>
+                            <td data-title="Alamat">{{ $penempatan->alamat }}</td>
                             <th class="d-flex justify-content-center">
                               <a class="btn btn-primary btn-sm me-2"
-                                  href="/sdetail-penempatan"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
+                                  href="{{ route('penempatan.shows', $penempatan->id) }}"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>  Detail</a>
                               
                             </th>
                           </tr>
-                          {{-- @endforeach --}}
+                          @endforeach
                         </tbody>
                       </table>
-                      {{-- {!! $penempatans->appends(Request::except('page'))->render() !!} --}}
+                      {!! $penempatans->appends(Request::except('page'))->render() !!} 
                     </div>
     
                   </form>

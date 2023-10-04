@@ -3,7 +3,7 @@
     <!-- Sidebar scroll-->
     <div>
       <div class="brand-logo d-flex align-items-center justify-content-between">
-        <a href="" class="text-nowrap logo-img">
+        <a href="{{ url('/sadmin') }}" class="text-nowrap logo-img">
           <img src="{{asset('icon/resik-logo.png')}}" class="rounded mx-auto d-block" width="180" alt="">
         </a>
         <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -19,7 +19,7 @@
           </li>
 
           <li class="sidebar-item">
-            <a class="sidebar-link" href="/sdashboard" aria-expanded="false">
+            <a class="sidebar-link" href="{{ url('/sadmin') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-layout-dashboard"></i>
               </span>
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="/spenempatan" aria-expanded="false">
+            <a class="sidebar-link" href="{{ route('penempatan.indexs') }}" aria-expanded="false">
               <span>
                 <i class="ti ti-cards"></i>
               </span>

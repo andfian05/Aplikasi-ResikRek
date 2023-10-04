@@ -72,22 +72,10 @@
                         <textarea name="deskripsi" class="form-control" id="" cols="6" rows="3"
                                 required></textarea>
                       </div>
-                      <!-- <div class="mb-3">
+                      <div class="mb-3">
                         <label for="lokasi" class="form-label">Lokasi <sup class="text-danger" font-size="20px">* </sup></label>
                         <select name="lokasi" id="lokasi" class="form-control">
                           <option value=""></option>
-                        </select>
-                      </div> -->
-
-                      <div class="mb-3">
-                        <label for="penempatan" class="form-label">Penempatan <sup class="text-danger" font-size="20px">* </sup></label>
-                        <select name="penempatan" id="penempatan" class="form-control" required>
-                          <option value="">--- Penempatan ---</option>
-                          @foreach ($penempatans as $penempatan)
-                            <option value="{{ $penempatan->alamat }}">
-                              {{ $penempatan->alamat }}
-                            </option>
-                          @endforeach
                         </select>
                       </div>
                       <div class="mb-3">

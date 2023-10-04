@@ -14,6 +14,10 @@ use App\Models\Desa;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Storage;
+use App\Exports\ExportPenempatan;
+use App\Imports\ImportUsers;
+use PDF;
+use Excel;
 use Illuminate\Support\Facades\File;
 
 class PenempatanController extends Controller
@@ -136,6 +140,33 @@ class PenempatanController extends Controller
         return redirect()->route('penempatan.index')->with('success', 'Data Penempatan Berhasil Diubah!');
     }
 
+
+    /**
+     * Export list user to PDF of the resource Users.
+     */
+    public function exportPDF()
+    {
+        $penempatan = Penempatan::all();
+        $data = [
+            'penempatan' => $penempatan,
+        ]; 
+
+      
+
+        $pdf = PDF::loadView('admin.penempatan.pdf-penempatan', $data)->setPaper('a4', 'landscape')->setOption(['dpi' => 300]);
+        return $pdf->download('Data-Penempatan-ResikRek.pdf');
+        
+    }
+
+
+    /**
+     * Export list user to Excel of the resource Users.
+     */
+    public function exportExcel()
+    {
+        return Excel::download(new ExportPenempatan, 'Data-Penempatan-ResikRek.xlsx');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
@@ -146,4 +177,46 @@ class PenempatanController extends Controller
 
         return redirect()->route('penempatan.index')->with('success', 'Data Penempatan Berhasil Dihapus!');
     }
+
+    /**
+     * Display a listing of the resource to Dasboard Superadmin.
+     */
+    public function indexs(Request $request)
+    {
+        $sadmin = Auth::user();
+        $penempatans = Penempatan::with(['kabupaten'])->get();
+
+        $cari = $request->query('cari');
+        
+        if(!empty($cari)){
+            $penempatans = Penempatan::sortable()
+            ->where('penempatan.alamat','like','%'. $cari .'%')
+            ->orWhere('penempatan.kab_id','like','%'. $cari .'%')
+            ->paginate(5)->onEachSide(1)->fragment('penempatans');
+        } else {
+            $penempatans = Penempatan::sortable()->paginate(5)->onEachSide(1)->fragment('penempatans');
+        }
+
+        return view('sadmin.penempatan.data-penempatan')->with([
+            'sadmin' => $sadmin,
+            'penempatans' => $penempatans,
+            'cari' => $cari,
+        ]);
+    }
+
+    /**
+     * Display the specified resource to Dasboard Superadmin.
+     */
+    public function shows(Request $request, string $id)
+    {
+        $sadmin = Auth::user();
+        $penempatan = Penempatan::with(['kabupaten', 'kecamatan', 'desa'])
+            ->findOrFail($id);
+
+        return view('sadmin.penempatan.detail-penempatan')->with([
+            'sadmin' => $sadmin,
+            'penempatan' => $penempatan,
+        ]);
+    }
+
 }

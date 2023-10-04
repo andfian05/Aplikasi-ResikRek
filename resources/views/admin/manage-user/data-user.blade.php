@@ -36,10 +36,10 @@
               <a class="btn btn-secondary m-1 mb-3" href="{{ route('manage-users.create') }}">
                 <i class="fa-solid fa-plus"></i>&nbsp;Add User
               </a>
-              <a class="btn btn-danger m-1 mb-3" href="">
+              <a class="btn btn-danger m-1 mb-3" href="{{ route('manage-users.pdf') }}">
                 <i class="fa-solid fa-file-pdf"></i>&nbsp; PDF
               </a>
-              <a class="btn btn-success m-1 mb-3" href="">
+              <a class="btn btn-success m-1 mb-3" href="{{ route('manage-users.excel') }}">
                 <i class="fa-solid fa-file-excel"></i>&nbsp; Excel
               </a>
 

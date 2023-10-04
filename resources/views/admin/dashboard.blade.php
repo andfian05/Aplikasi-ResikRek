@@ -71,7 +71,13 @@
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
-                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="text-dark me-1 fs-3 mb-0">
+                            @if ($user == 0)
+                              0
+                            @else
+                              {{ $user }}
+                            @endif
+                          </p>
                           <p class="fs-3 mb-0">Karyawan</p>
                         </div>
                         <div class="d-flex align-items-center">
@@ -135,7 +141,13 @@
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
-                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="text-dark me-1 fs-3 mb-0">
+                            @if ($laporan == 0)
+                              0
+                            @else
+                              {{ $laporan }}
+                            @endif
+                          </p>
                           <p class="fs-3 mb-0">Karyawan</p>
                         </div>
                         <div class="d-flex align-items-center">
@@ -169,7 +181,13 @@
                             class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                             <i class="ti ti-arrow-up-left text-success"></i>
                           </span>
-                          <p class="text-dark me-1 fs-3 mb-0">20</p>
+                          <p class="text-dark me-1 fs-3 mb-0">
+                            @if ($penempatan == 0)
+                              0
+                            @else
+                              {{ $penempatan }}
+                            @endif
+                          </p>
                           <p class="fs-3 mb-0">Karyawan</p>
                         </div>
                         <div class="d-flex align-items-center">
@@ -253,8 +271,6 @@
                 <div class="d-flex align-items-center justify-content-between">
                   
                  
-
-                
                 </div>
               </div>
             </div>
@@ -266,8 +282,6 @@
       </div>
     </div>
   </div>
-  
-
   
 
 

@@ -34,7 +34,7 @@ class LaporanController extends Controller
             $reports = Laporan::with(['user'])->sortable()->paginate(5)->onEachSide(1)->fragment('reports');
         }
 
-        return view('admin.laporan.data-laporan')->with([
+        return view('admin.laporan.index-laporan')->with([
             'admin' => $admin,
             'users' => $users,
             'reports' => $reports,
@@ -49,12 +49,10 @@ class LaporanController extends Controller
     {
         $admin = Auth::user();
         $users = User::where('role', 'karyawan')->get();
-        $penempatans = Penempatan::all();
 
         return view('admin.laporan.add-laporan')->with([
             'admin' => $admin,
             'users' => $users,
-            'penempatans' => $penempatans,
         ]);
     }
 
@@ -65,25 +63,24 @@ class LaporanController extends Controller
     {
         $data = $request->all();
 
-        $beforefoto = $request->file('before_foto');
-        $beforefotoName = time().'-'.$beforefoto->getClientOriginalName();
-        $path = 'img/before/'.$beforefotoName;
+        $beforefoto = $request->file('sebelum');
+        $beforefotoName = time().'-before.'. $request->sebelum->extension();
+        $path = 'img/laporan/'.$beforefotoName;
         Storage::disk('public')->put($path, file_get_contents($beforefoto));
         
-        $afterfoto = $request->file('after_foto');
-        $afterfotoName = time().'-'.$afterfoto->getClientOriginalName();
-        $path = 'img/after/'.$afterfotoName;
+        $afterfoto = $request->file('sesudah');
+        $afterfotoName = time().'-after.'. $request->sesudah->extension();
+        $path = 'img/laporan/'.$afterfotoName;
         Storage::disk('public')->put($path, file_get_contents($afterfoto));
 
         // dd($data);
         Laporan::create([
             'user_id' => $data['user_id'],
-            'before_foto' => $beforefotoName,
-            'after_foto' => $afterfotoName,
+            'sebelum' => $beforefotoName,
+            'sesudah' => $afterfotoName,
             'deskripsi' => $data['deskripsi'],
-            // 'lokasi' => $data['lokasi'],
+            'lokasi' => $data['lokasi'],
             'catatan' => $data['catatan'],
-            // 'penempatan' => $data['penempatan'],
         ]);
 
         return redirect()->route('laporan.index')->with('success', 'Data Laporan Berhasil Ditambahkan!');
@@ -128,24 +125,24 @@ class LaporanController extends Controller
         $data = $request->all();
         $report = Laporan::findOrFail($id);
 
-        if ($request->before_foto == "") {
-            $beforefotoName = $report->before_foto;
+        if ($request->sebelum == "") {
+            $beforefotoName = $report->sebelum;
         } else {
-            $beforefoto = $request->file('before_foto');
-            $beforefotoName = time().'-'.$beforefoto->getClientOriginalName();
-            $path = 'img/before/'.$beforefotoName;
+            $beforefoto = $request->file('sebelum');
+            $beforefotoName = time().'-before.'. $request->sebelum->extension();
+            $path = 'img/laporan/'.$beforefotoName;
             Storage::disk('public')->put($path, file_get_contents($beforefoto));
-            if(!empty($report->before_foto)) File::delete('storage/img/before/'.$report->before_foto);
+            if(!empty($report->sebelum)) File::delete('storage/img/laporan/'.$report->sebelum);
         }
 
-        if ($request->after_foto == "") {
-            $afterfotoName = $report->after_foto;
+        if ($request->sesudah == "") {
+            $afterfotoName = $report->sesudah;
         } else {
-            $afterfoto = $request->file('after_foto');
-            $afterfotoName = time().'-'.$afterfoto->getClientOriginalName();
-            $path = 'img/after/'.$afterfotoName;
+            $afterfoto = $request->file('sesudah');
+            $afterfotoName = time().'-after.'. $request->sesudah->extension();
+            $path = 'img/laporan/'.$afterfotoName;
             Storage::disk('public')->put($path, file_get_contents($afterfoto));
-            if(!empty($report->after_foto)) File::delete('storage/img/after/'.$report->after_foto);
+            if(!empty($report->sesudah)) File::delete('storage/img/laporan/'.$report->sesudah);
         }
 
         if ($request->lokasi == "") {
@@ -158,8 +155,8 @@ class LaporanController extends Controller
         Laporan::where('id', $report->id)
             ->update([
                 'user_id' => $data['user_id'],
-                'before_foto' => $beforefotoName,
-                'after_foto' => $afterfotoName,
+                'sebelum' => $beforefotoName,
+                'sesudah' => $afterfotoName,
                 'deskripsi' => $data['deskripsi'],
                 'lokasi' => $lokasi,
                 'catatan' => $data['catatan'],
@@ -173,9 +170,9 @@ class LaporanController extends Controller
      */
     public function destroy(string $id)
     {
-        $report = Laporan::findOrFail($id);
-        if(!empty($report->before_foto && $report->after_foto)) File::delete('storage/img/before/'.$report->before_foto, 'storage/img/after/'.$report->after_foto);
+        $report = Laporan::find($id);
         $report->delete();
+
 
         return redirect()->route('laporan.index')->with('success', 'Data Laporan Berhasil Dihapus!');
     }

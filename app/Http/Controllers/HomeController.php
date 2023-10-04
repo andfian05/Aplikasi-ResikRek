@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Penempatan;
+use App\Models\Laporan;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -32,9 +34,15 @@ class HomeController extends Controller
     public function dashboardAdmin(Request $request)
     {
         $admin = Auth::user();
+        $user = User::count();
+        $penempatan = Penempatan::count();
+        $laporan = Laporan::count();
         
         return view('admin.dashboard')->with([
             'admin' => $admin,
+            'user' => $user,
+            'penempatan' => $penempatan,
+            'laporan' => $laporan,
             
         ]);
     }
